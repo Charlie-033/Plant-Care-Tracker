@@ -1,9 +1,15 @@
 import React from 'react';
+import Hero from './Hero';
 
 const Home = () => {
     return (
         <div>
-            <h2 className='text-6xl font-semibold text-center top-6'>Plant Care Tracker Client</h2>
+            <div >
+                <Hero/>
+            </div>
+            <div className='max-w-7xl mx-auto'>
+
+            </div>
         </div>
     );
 };
