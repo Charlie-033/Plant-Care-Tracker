@@ -1,7 +1,9 @@
 import React from 'react';
 import Hero from './Hero';
+import DocumentTitle from '../Others/DocumentTitle';
 
 const Home = () => {
+    DocumentTitle("Home")
     return (
         <div>
             <div >

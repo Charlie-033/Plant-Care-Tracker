@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
+import AuthContext from "../../Provider/AuthContext";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  // console.log(user)
   return (
     <div className="navbar bg-yellow-100 px-3 md:px-8 lg:px-16">
       <div className="navbar-start">
@@ -42,8 +45,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center justify-center">
-          
-            <img
+          <img
             src="https://i.ibb.co/xtT2vBWq/logo-removebg-preview.png"
             alt=""
             className="w-7 md:w-10 lg:w-15 hidden md:block bg-yellow-100"
@@ -57,9 +59,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 space-x-5">
           <li>
             <NavLink
-               className={({ isActive }) =>
+              className={({ isActive }) =>
                 `btn font-bold ${
-                  isActive ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2" : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
+                  isActive
+                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
+                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
                 }`
               }
               to="/"
@@ -71,7 +75,9 @@ const Navbar = () => {
             <NavLink
               className={({ isActive }) =>
                 `btn font-bold ${
-                  isActive ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2" : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
+                  isActive
+                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
+                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
                 }`
               }
               to="/allplants"
@@ -81,9 +87,11 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-               className={({ isActive }) =>
+              className={({ isActive }) =>
                 `btn font-bold ${
-                  isActive ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2" : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
+                  isActive
+                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
+                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
                 }`
               }
               to="/allplants"
@@ -95,7 +103,9 @@ const Navbar = () => {
             <NavLink
               className={({ isActive }) =>
                 `btn font-bold ${
-                  isActive ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2" : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
+                  isActive
+                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
+                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
                 }`
               }
               to="/allplants"
@@ -107,14 +117,17 @@ const Navbar = () => {
       </div>
       <div className="navbar-end flex items-center gap-3">
         <span className="cursor-pointer">
-          <img alt="" />
+          <img alt="" src={user.photoURL} className="rounded-full w-10"/>
         </span>
-        {
-          //   user ?
-          //   <>
-          //   <Link to="/auth/login"><button className="btn bg-blue-900 text-white rounded-full">LogOut</button></Link>
-          //   </>
-          //   :
+        {user ? (
+          <>
+            <Link to="/auth/login">
+              <button className="btn btn-outline btn-success text-green-800 font-bold rounded-full">
+                LogOut
+              </button>
+            </Link>
+          </>
+        ) : (
           <>
             <Link to="/auth/login">
               <button className="btn btn-outline btn-success text-green-800 font-bold rounded-full">
@@ -127,7 +140,7 @@ const Navbar = () => {
               </button>
             </Link>
           </>
-        }
+        )}
       </div>
     </div>
   );
