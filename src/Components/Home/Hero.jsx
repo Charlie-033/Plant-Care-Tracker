@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthContext from "../../Provider/AuthContext";
 
 const Hero = () => {
@@ -24,14 +24,23 @@ const Hero = () => {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((src, i) => (
-            <div key={i} className="w-full flex-shrink-0 flex justify-center">
+            <div key={i} className="w-full flex-shrink-0 flex justify-center relative">
               <img
                 src={src}
                 alt=""
-                className={`transition-transform transform rounded-full object-cover  ${
+                className={`transition-transform transform rounded-tl-4xl rounded-br-4xl object-cover  ${
                   i === currentIndex ? "scale-100" : "scale-65 opacity-70"
                 }`}
               />
+              {i === currentIndex && (
+                <div className="absolute inset-0 flex items-end justify-center">
+                  <h2 className="text-white text-2xl font-bold bg-black/50 px-4 py-2 rounded-lg rounded-br-4xl">
+                    <span>Slide {i + 1} Title</span> <br />
+                    <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi deleniti adipisci, quia animi deserunt nihil dolorem! Rerum quam laudantium sequi?</span>
+                  </h2>
+                  
+                </div>
+              )}
             </div>
           ))}
         </div>

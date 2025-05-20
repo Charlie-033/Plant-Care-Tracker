@@ -4,6 +4,9 @@ import RootLayout from "../Layout/RootLayout";
 import AllPlants from "../Components/Navbar/AllPlants";
 import Register from "../Components/Navbar/Register";
 import Login from "../Components/Navbar/Login";
+import AddPlants from "../Components/Navbar/AddPlants";
+import MyPlants from "../Components/Navbar/MyPlants";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +20,16 @@ export const router = createBrowserRouter([
       {
         path: "allplants",
         element: <AllPlants />,
+      },
+      {
+        path: 'addplant',
+        element: <PrivateRoute>
+            <AddPlants/>
+        </PrivateRoute>
+      },
+      {
+        path: 'myplants',
+        element: <MyPlants/>
       },
       {
         path: "auth",

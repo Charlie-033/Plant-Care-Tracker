@@ -1,10 +1,19 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import AuthContext from "../../Provider/AuthContext";
+import { FaUserAltSlash } from "react-icons/fa";
+
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-  // console.log(user)
+  const { user, logOut } = useContext(AuthContext);
+  // console.log(user);
+  // console.log(user?.photoURL);
+  const handleLogOut = () => {
+    logOut()
+    .then(res => console.log(res))
+    .catch(error => console.error(error));
+  }
+
   return (
     <div className="navbar bg-yellow-100 px-3 md:px-8 lg:px-16">
       <div className="navbar-start">
@@ -37,10 +46,10 @@ const Navbar = () => {
               <NavLink to="/allplants">All Plants</NavLink>
             </li>
             <li>
-              <NavLink to="/blogs">Add Plants</NavLink>
+              <NavLink to="/addplant">Add Plants</NavLink>
             </li>
             <li>
-              <NavLink to="/blogs">My Plants</NavLink>
+              <NavLink to="/myplants">My Plants</NavLink>
             </li>
           </ul>
         </div>
@@ -94,7 +103,7 @@ const Navbar = () => {
                     : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
                 }`
               }
-              to="/allplants"
+              to="/addplant"
             >
               Add Plants
             </NavLink>
@@ -108,7 +117,7 @@ const Navbar = () => {
                     : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
                 }`
               }
-              to="/allplants"
+              to="/myplants"
             >
               My Plants
             </NavLink>
@@ -116,14 +125,18 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex items-center gap-3">
-        <span className="cursor-pointer">
-          <img alt="" src={user.photoURL} className="rounded-full w-10"/>
+        <span className={`cursor-pointer tooltip tooltip-bottom`} data-tip={user?.displayName}>
+          {
+            user?.photoURL ? (
+              <img alt="" src={user.photoURL} className="rounded-full w-10 "/>
+            ) : (<FaUserAltSlash className="text-2xl text-green-800"/>)
+          }
         </span>
         {user ? (
           <>
             <Link to="/auth/login">
-              <button className="btn btn-outline btn-success text-green-800 font-bold rounded-full">
-                LogOut
+              <button onClick={handleLogOut} className="btn btn-outline btn-success text-green-800 font-bold rounded-full">
+                LogOut 
               </button>
             </Link>
           </>

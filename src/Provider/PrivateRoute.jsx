@@ -13,7 +13,7 @@ const PrivateRoute = ({children}) => {
         return children;
     } else {
         alert('You are not logged in');
-        <Navigate to="/auth/login" state={location.pathname} replace />
+        return <Navigate to="/auth/login" state={location.pathname} replace />
     }
 };
 

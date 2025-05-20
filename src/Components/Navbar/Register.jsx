@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import AuthContext from "../../Provider/AuthContext";
 import DocumentTitle from "../Others/DocumentTitle";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
@@ -50,12 +51,13 @@ const Register = () => {
       .then((result) => {
         const user  = result.user;
         console.log(user);
-        updateUser({
+        return updateUser({
             displayName: name,
             photoURL: photo
         })
       })
       .then(() => {
+        toast.success("User Created Successfully")
         navigate(`${location.state ? location.state : "/"}`)
       })
       .catch((error) => {
