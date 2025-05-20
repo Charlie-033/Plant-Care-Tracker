@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../../Provider/AuthContext";
+import { toast } from "react-toastify";
 
 const AddPlants = () => {
     const {user} = useContext(AuthContext);
@@ -12,7 +13,23 @@ const AddPlants = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newPlant = Object.fromEntries(formData.entries());
-    console.log(newPlant)
+    console.log(newPlant);
+
+    // Send New Plant Data to server
+    fetch('http://localhost:3001/plants', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(newPlant)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.insertedId){
+            toast.success('Plant Added Successfully');
+            console.log(data);
+        }
+    })
   };
   return (
     <div className="space-y-5 max-w-6xl mx-auto py-10">
@@ -59,7 +76,7 @@ const AddPlants = () => {
             <span className="text-xl font-semibold">Image</span>
             <input
               type="text"
-              name="supplier"
+              name="photo"
               placeholder="Enter Photo URL"
               className="input input-neutral w-full"
             />
@@ -78,7 +95,7 @@ const AddPlants = () => {
           <label className="w-full italic">
             <span className="text-xl font-semibold">Care Level</span>
             <select
-              name="care level"
+              name="careLevel"
               defaultValue=""
               required
               className="input input-neutral w-full"
@@ -94,7 +111,7 @@ const AddPlants = () => {
           <label className="w-full italic">
             <span className="text-xl font-semibold">Watering Frequency</span>
              <select
-              name="watering frequency"
+              name="wateringFrequency"
               defaultValue=""
               required
               className="input input-neutral w-full"
@@ -113,7 +130,7 @@ const AddPlants = () => {
             <span className="text-xl font-semibold">Last Watered Date</span>
               
               <DatePicker 
-              name="last watered date"
+              name="lastWateredDate"
               selected={startDate}
               onChange={date => setStartDate(date)}
               className="input input-neutral w-full"
@@ -123,7 +140,7 @@ const AddPlants = () => {
           <label className="w-full italic">
             <span className="text-xl font-semibold">Health Status</span>
             <select
-              name="health status"
+              name="healthStatus"
               defaultValue=""
               required
               className="input input-neutral w-full"
@@ -140,7 +157,7 @@ const AddPlants = () => {
           <label className="w-full italic">
             <span className="text-xl font-semibold">Next Watered Date</span>
             <DatePicker 
-              name="next watered date"
+              name="nextWateredDate"
               selected={endDate}
               onChange={date => setEndDate(date)}
               className="input input-neutral w-full"
@@ -153,7 +170,7 @@ const AddPlants = () => {
             <input
               className="input input-neutral w-full"
               type="text"
-              name="user name"
+              name="userName"
               value={user?.displayName}
               placeholder="Enter User Name"
             />
@@ -163,14 +180,14 @@ const AddPlants = () => {
             <input
               className="input input-neutral w-full"
               type="text"
-              name="user email"
+              name="userEmail"
               value={user?.email}
               placeholder="Enter User Email"
             />
           </label>
         </div>
-        <button type="submit" className="btn btn-neutral w-full">
-          Add Coffee
+        <button type="submit" className="btn bg-green-800 w-full text-white">
+          Add Plant
         </button>
       </form>
     </div>

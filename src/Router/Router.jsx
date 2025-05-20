@@ -7,6 +7,8 @@ import Login from "../Components/Navbar/Login";
 import AddPlants from "../Components/Navbar/AddPlants";
 import MyPlants from "../Components/Navbar/MyPlants";
 import PrivateRoute from "../Provider/PrivateRoute";
+import PlantDetails from "../Components/Pages/PlantDetails";
+import UpdatePlant from "../Components/Pages/UpdatePlant";
 
 export const router = createBrowserRouter([
   {
@@ -22,9 +24,23 @@ export const router = createBrowserRouter([
         element: <AllPlants />,
       },
       {
+        path: 'plants/:id',
+        loader: ({params}) => fetch(`http://localhost:3001/plants/${params.id}`),
+        element: <PrivateRoute>
+            <PlantDetails/>
+        </PrivateRoute>
+      },
+      {
         path: 'addplant',
         element: <PrivateRoute>
             <AddPlants/>
+        </PrivateRoute>
+      },
+      {
+        path: 'updateplant/:id',
+        loader: ({params}) => fetch(`http://localhost:3001/plants/${params.id}`),
+        element: <PrivateRoute>
+            <UpdatePlant/>
         </PrivateRoute>
       },
       {
