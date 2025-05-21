@@ -12,7 +12,7 @@ const PlantDetails = () => {
             border border-green-200"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-          <div className="h-76 flex items-center justify-center overflow-hidden">
+          <div className="h-80 flex items-center justify-center overflow-hidden">
             <img
               src={plant.photo}
               alt={plant.name}

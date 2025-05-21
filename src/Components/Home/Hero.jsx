@@ -5,9 +5,24 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    "https://i.ibb.co/nN1QCRMQ/banner-6.webp",
-    "https://i.ibb.co/8DM7220Z/banner-4.webp",
-    "https://i.ibb.co/mFtbmFhk/banner-5.jpg",
+    {
+      src: "https://i.ibb.co/nN1QCRMQ/banner-6.webp",
+      title: "🌿 Embracing the Joy of Plant Care",
+      description:
+        "Surrounded by lush greenery, the scene captures the peaceful and rewarding experience of nurturing houseplants — a perfect reminder of the simple happiness found in everyday nature."
+    },
+    {
+      src: "https://i.ibb.co/8DM7220Z/banner-4.webp",
+      title: "🌿 A Modern Touch of Green Indoors",
+      description:
+        "Bring life and freshness into any space with a beautiful collection of indoor plants. Their clean, minimalist look adds a calming atmosphere while purifying the air — the perfect blend of style and wellness."
+    },
+    {
+      src: "https://i.ibb.co/mFtbmFhk/banner-5.jpg",
+      title: "🌞 Window-Side Serenity with Houseplants",
+      description:
+        "Basking in natural light, this cozy collection of potted greens brings warmth and calm to any corner. Perfectly placed by the window, these plants thrive while adding a peaceful, lived-in charm to the home."
+    }
   ];
   useEffect(() => {
     const timer = setInterval(() => {
@@ -23,10 +38,13 @@ const Hero = () => {
           className="flex transition-transform duration-500"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {images.map((src, i) => (
-            <div key={i} className="w-full flex-shrink-0 flex justify-center relative">
+          {images.map((slide, i) => (
+            <div
+              key={i}
+              className="w-full flex-shrink-0 flex justify-center relative"
+            >
               <img
-                src={src}
+                src={slide.src}
                 alt=""
                 className={`transition-transform transform rounded-tl-4xl rounded-br-4xl object-cover  ${
                   i === currentIndex ? "scale-100" : "scale-65 opacity-70"
@@ -34,11 +52,12 @@ const Hero = () => {
               />
               {i === currentIndex && (
                 <div className="absolute inset-0 flex items-end justify-center">
-                  <h2 className="text-white text-2xl font-bold bg-black/50 px-4 py-2 rounded-lg rounded-br-4xl">
-                    <span>Slide {i + 1} Title</span> <br />
-                    <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi deleniti adipisci, quia animi deserunt nihil dolorem! Rerum quam laudantium sequi?</span>
+                  <h2 className="text-white bg-black/50 px-4 py-2 rounded-lg rounded-br-4xl">
+                    <span className="text-xl font-semibold">{slide.title}</span> <br />
+                    <span className="text-sm">
+                      {slide.description}
+                    </span>
                   </h2>
-                  
                 </div>
               )}
             </div>
