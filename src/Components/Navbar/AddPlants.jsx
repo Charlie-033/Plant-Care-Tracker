@@ -5,9 +5,9 @@ import AuthContext from "../../Provider/AuthContext";
 import { toast } from "react-toastify";
 
 const AddPlants = () => {
-    const {user} = useContext(AuthContext);
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+  const { user } = useContext(AuthContext);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,24 +16,24 @@ const AddPlants = () => {
     console.log(newPlant);
 
     // Send New Plant Data to server
-    fetch('http://localhost:3001/plants', {
-        method: 'POST',
-        headers: {
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(newPlant)
+    fetch("http://localhost:3001/plants", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPlant),
     })
-    .then(res => res.json())
-    .then(data => {
-        if(data.insertedId){
-            toast.success('Plant Added Successfully');
-            console.log(data);
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Plant Added Successfully");
+          console.log(data);
         }
-    })
+      });
   };
   return (
-    <div className="space-y-5 max-w-6xl mx-auto py-10">
-      <div>
+    <div className="space-y-5 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-green-50 to-teal-50 rounded-lg shadow-sm">
+      <div className="">
         <h1 className="text-4xl italic text-green-700 font-semibold px-24 text-center">
           Add A Plant
         </h1>
@@ -65,8 +65,8 @@ const AddPlants = () => {
               <option value="" disabled>
                 Select a category
               </option>
-              <option value="Indoor">Indoor</option>
-              <option value="Outdoor">Outdoor</option>
+              <option value="Succulent">Succulent</option>
+              <option value="Flowering">Flowering</option>
               <option value="Fern">Fern</option>
             </select>
           </label>
@@ -110,7 +110,7 @@ const AddPlants = () => {
           </label>
           <label className="w-full italic">
             <span className="text-xl font-semibold">Watering Frequency</span>
-             <select
+            <select
               name="wateringFrequency"
               defaultValue=""
               required
@@ -128,14 +128,13 @@ const AddPlants = () => {
         <div className="flex gap-10">
           <label className="w-full italic">
             <span className="text-xl font-semibold">Last Watered Date</span>
-              
-              <DatePicker 
+
+            <DatePicker
               name="lastWateredDate"
               selected={startDate}
-              onChange={date => setStartDate(date)}
+              onChange={(date) => setStartDate(date)}
               className="input input-neutral w-full"
-              />
-           
+            />
           </label>
           <label className="w-full italic">
             <span className="text-xl font-semibold">Health Status</span>
@@ -156,12 +155,12 @@ const AddPlants = () => {
           </label>
           <label className="w-full italic">
             <span className="text-xl font-semibold">Next Watered Date</span>
-            <DatePicker 
+            <DatePicker
               name="nextWateredDate"
               selected={endDate}
-              onChange={date => setEndDate(date)}
+              onChange={(date) => setEndDate(date)}
               className="input input-neutral w-full"
-              />
+            />
           </label>
         </div>
         <div className="flex gap-10">

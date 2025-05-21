@@ -6,8 +6,12 @@ const PlantDetails = () => {
   const plant = useLoaderData();
   console.log(plant);
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
-      <div className="bg-white shadow-lg rounded-2xl bg-linear-to-b from-yellow-100 to-green-300 overflow-hidden p-2">
+    <div className="max-w-5xl mx-auto px-6 py-12 ">
+      <div
+        className="bg-white shadow-lg rounded-2xl  overflow-hidden p-2 bg-gradient-to-br from-green-50 to-emerald-100 
+            rounded-lg shadow-md p-4 
+            border border-green-200"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="p-5">
             <img
@@ -42,13 +46,13 @@ const PlantDetails = () => {
               <p>
                 <strong>Next Watering:</strong> {plant.nextWateredDate}
               </p>
-              <p>
+              <p className="text-lg items-center">
                 <strong>Added by:</strong> {plant.userName}
               </p>
-              <p>
-                <strong>Email:</strong> {plant.userEmail}
-              </p>
-              <Link to={`/updateplant/${plant._id}`} className="btn btn-xs">Update</Link>
+              
+              <Link to={`/updateplant/${plant._id}`} className="btn btn-xs">
+                Update
+              </Link>
             </div>
           </div>
         </div>

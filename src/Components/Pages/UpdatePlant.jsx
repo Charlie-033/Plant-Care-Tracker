@@ -3,9 +3,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../../Provider/AuthContext";
 import { useLoaderData } from "react-router";
+import { useContext } from "react";
+import { toast } from "react-toastify";
 // import { toast } from "react-toastify";
 
 const UpdatePlant = () => {
+  const {user } = useContext(AuthContext)
     const plant = useLoaderData();
     console.log(plant);
     const {_id, name, category, photo, description, careLevel, wateringFrequency, lastWateredDate, healthStatus, nextWateredDate} = plant;
@@ -18,10 +21,24 @@ const UpdatePlant = () => {
         const updatePlant = Object.fromEntries(formData.entries());
         console.log(updatePlant);
         // Send Update Plant Data to server
+        fetch(`http://localhost:3001/plants/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(updatePlant)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount){
+                toast.success('Plant Updated Successfully');
+                console.log(data);
+            }
+        })
 
     }
     return (
-       <div className="space-y-5 max-w-6xl mx-auto py-10">
+       <div className="space-y-5 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-orange-50 to-teal-50 rounded-lg shadow-sm">
              <div>
                <h1 className="text-4xl italic text-green-700 font-semibold px-24 text-center">
                  Update Plant
@@ -55,8 +72,8 @@ const UpdatePlant = () => {
                      <option value="" disabled>
                        Select a category
                      </option>
-                     <option value="Indoor">Indoor</option>
-                     <option value="Outdoor">Outdoor</option>
+                     <option value="Succulent">Succulent</option>
+                     <option value="Flowering">Flowering</option>
                      <option value="Fern">Fern</option>
                    </select>
                  </label>
@@ -158,8 +175,30 @@ const UpdatePlant = () => {
                      />
                  </label>
                </div>
+               <div className="flex gap-10">
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">User Name</span>
+            <input
+              className="input input-neutral w-full"
+              type="text"
+              name="userName"
+              value={user?.displayName}
+              placeholder="Enter User Name"
+            />
+          </label>
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">User Email</span>
+            <input
+              className="input input-neutral w-full"
+              type="text"
+              name="userEmail"
+              value={user?.email}
+              placeholder="Enter User Email"
+            />
+          </label>
+        </div>
                <button type="submit" className="btn bg-green-800 w-full text-white">
-                 Add Plant
+                 Update Plant
                </button>
              </form>
            </div>

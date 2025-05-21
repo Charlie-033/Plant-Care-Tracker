@@ -16,14 +16,14 @@ const AllPlants = () => {
       });
   }, []);
   return (
-    <div className="overflow-x-auto py-10">
-      <h2 className="text-center text-4xl ">All Plants</h2>
+    <div className="overflow-x-auto py-10 pl-5">
+      <h2 className="text-center text-4xl border-b-2 pb-3 border-gray-600 italic font-bold text-green-700">All Plants</h2>
       <table className="table">
         {/* head */}
-        <thead>
+        <thead className="bg-gradient-to-b from-green-50 to-teal-50">
           <tr>
             <th>SL No.</th>
-            <th>Name</th>
+            <th>Plant Name</th>
             <th>Category</th>
             <th>Watering Frequency</th>
             <th>Care Level</th>
