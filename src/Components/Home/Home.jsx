@@ -4,7 +4,7 @@ import DocumentTitle from '../Others/DocumentTitle';
 import NewPlants from './NewPlants';
 
 const Home = () => {
-    DocumentTitle("Home")
+    DocumentTitle("Home");
     return (
         <div>
             <div >

@@ -64,7 +64,7 @@ const AllPlants = () => {
                 </td>
                 <td>{plant.wateringFrequency}</td>
                 <td>{plant.careLevel}</td>
-                <th className="flex flex-col gap-2">
+                <th className="">
                   <Link to={`/plants/${plant._id}`}>
                   <button className="btn btn-xs btn-info">Details</button>
                   </Link>

@@ -39,8 +39,10 @@ const MyPlants = () => {
         <div className="flex items-center justify-center h-72">
           <h2 className="text-center text-2xl font-bold text-gray-700">
             No plants found. Please add some plants to your collection.
-          </h2> <br />
-          <p><Link className="btn btn-md btn-success">Add Plant</Link></p>
+            <br />
+            <Link to="/addplant" className="btn btn-sm bg-green-700">Add Plant</Link>
+          </h2> 
+          
         </div>
       )}
     </div>
