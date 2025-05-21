@@ -32,7 +32,7 @@ const MyPlants = () => {
       {plants.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
           {plants.map((plant) => (
-            <PlantCard key={plant._id} plant={plant}></PlantCard>
+            <PlantCard key={plant._id} plant={plant} plants={plants} setPlants={setPlants}></PlantCard>
           ))}
         </div>
       ) : (

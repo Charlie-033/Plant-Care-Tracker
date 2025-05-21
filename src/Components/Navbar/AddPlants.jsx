@@ -32,18 +32,18 @@ const AddPlants = () => {
       });
   };
   return (
-    <div className="space-y-5 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-green-50 to-teal-50 rounded-lg shadow-sm">
+    <div className="space-y-5 px-2 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-green-50 to-teal-50 rounded-lg shadow-sm">
       <div className="">
-        <h1 className="text-4xl italic text-green-700 font-semibold px-24 text-center">
+        <h1 className="text-3xl md:text-4xl italic text-green-700 font-semibold px-24 text-center">
           Add A Plant
         </h1>
-        <p className="text-center text-md font-semibold px-12 italic">
+        <p className="text-center text-md font-semibold px-2 md:px-12 italic">
           Fill in the details below to add a new plant to your collection.
           Include the plant’s name, image, description, and any specific care
           instructions to help track its growth and health.
         </p>
       </div>
-      <form onSubmit={handleSubmit} className="w-8/12 mx-auto space-y-5">
+      <form onSubmit={handleSubmit} className="w-full md:w-8/12 px-4 mx-auto space-y-5">
         <div className="flex gap-10">
           <label className="w-full italic">
             <span className="text-xl font-semibold">Name</span>
@@ -122,6 +122,7 @@ const AddPlants = () => {
               <option value="Every 2 days">Every 2 days</option>
               <option value="Every 3 days">Every 3 days</option>
               <option value="Every 5 days">Every 5 days</option>
+              <option value="Every 7 days">Every 7 days</option>
             </select>
           </label>
         </div>

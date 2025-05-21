@@ -45,7 +45,9 @@ export const router = createBrowserRouter([
       },
       {
         path: 'myplants',
-        element: <MyPlants/>
+        element: <PrivateRoute>
+          <MyPlants/>
+        </PrivateRoute>
       },
       {
         path: "auth",
