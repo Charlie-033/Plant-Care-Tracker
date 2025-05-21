@@ -38,7 +38,7 @@ const Mistakes = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 space-y-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 space-y-5 pb-5">
         <div className="space-y-3">
           <h3 className="text-xl font-semibold italic text-red-400">
             1. Overwatering
