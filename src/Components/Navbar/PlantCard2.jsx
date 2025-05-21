@@ -1,19 +1,19 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
+import React from "react";
+import { useNavigate } from "react-router";
 
-const PlantCard2 = ({plant}) => {
-    const navigate = useNavigate();
-    const handleNavigate = () => {
-        navigate(`/plants/${plant._id}`);
-    }
-     const {
+const PlantCard2 = ({ plant }) => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate(`/plants/${plant._id}`);
+  };
+  const {
     _id,
     name,
     category,
     photo,
     description,
     careLevel,
-    wateringFrequency
+    wateringFrequency,
   } = plant;
   return (
     <div
@@ -31,7 +31,9 @@ const PlantCard2 = ({plant}) => {
               ? "bg-purple-100 text-purple-800"
               : category === "Succulent"
               ? "bg-orange-100 text-orange-800"
-              : "bg-green-100 text-green-800"
+              : category === "Fern"
+              ? "bg-green-100 text-green-800"
+              : ""
           }`}
         >
           {category}
@@ -50,17 +52,19 @@ const PlantCard2 = ({plant}) => {
             <span className="text-gray-500 mr-1">🌡️</span>
             <span>{careLevel}</span>
           </div>
-        
         </div>
 
         <div className="flex justify-between mt-4">
-            <button onClick={() => handleNavigate(plant._id)} className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors">
-              View Details
-            </button>
+          <button
+            onClick={() => handleNavigate(plant._id)}
+            className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors"
+          >
+            View Details
+          </button>
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default PlantCard2;
