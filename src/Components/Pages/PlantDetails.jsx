@@ -12,12 +12,12 @@ const PlantDetails = () => {
             rounded-lg shadow-md p-4 
             border border-green-200"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="p-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+          <div className="h-76 flex items-center justify-center overflow-hidden">
             <img
               src={plant.photo}
               alt={plant.name}
-              className="rounded-xl object-cover w-full h-72 md:h-full"
+              className="w-full h-full object-cover rounded-lg"
             />
           </div>
 
@@ -49,10 +49,6 @@ const PlantDetails = () => {
               <p className="text-lg items-center">
                 <strong>Added by:</strong> {plant.userName}
               </p>
-              
-              <Link to={`/updateplant/${plant._id}`} className="btn btn-xs">
-                Update
-              </Link>
             </div>
           </div>
         </div>

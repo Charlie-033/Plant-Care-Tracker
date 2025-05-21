@@ -48,6 +48,7 @@ const AllPlants = () => {
                         <img
                           src={plant.photo}
                           alt="Avatar Tailwind CSS Component"
+                          className="object-cover"
                         />
                       </div>
                     </div>
