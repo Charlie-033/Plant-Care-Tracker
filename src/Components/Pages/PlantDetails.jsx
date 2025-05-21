@@ -1,6 +1,5 @@
 import React from "react";
-import { GiPlantSeed } from "react-icons/gi";
-import { Link, useLoaderData } from "react-router";
+import {  useLoaderData } from "react-router";
 
 const PlantDetails = () => {
   const plant = useLoaderData();

@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 
 const PlantCard2 = ({plant}) => {
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate(`/plants/${plant._id}`);
+    }
      const {
     _id,
     name,
@@ -49,7 +54,7 @@ const PlantCard2 = ({plant}) => {
         </div>
 
         <div className="flex justify-between mt-4">
-            <button className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+            <button onClick={() => handleNavigate(plant._id)} className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors">
               View Details
             </button>
         </div>
