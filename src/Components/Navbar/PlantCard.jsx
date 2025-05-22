@@ -1,24 +1,39 @@
 import React from "react";
 import { Link } from "react-router";
-import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const PlantCard = ({ plant, setPlants }) => {
-
-   const handleDelete = id  => {
+  const handleDelete = (id) => {
     // console.log(id)
-    fetch(`http://localhost:3001/plants/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount) {
-          toast.success("Deleted successfully");
-            setPlants((prevPlants) =>
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3001/plants/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              setPlants((prevPlants) =>
                 prevPlants.filter((plant) => plant._id !== id)
-            );
-        }
-      });
-   }
+              );
+            }
+          });
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your plant has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
   const {
     _id,
     name,
@@ -97,9 +112,12 @@ const PlantCard = ({ plant, setPlants }) => {
               Update
             </button>
           </Link>
-            <button onClick={() => handleDelete(_id)} className="flex-1 bg-red-100 hover:bg-red-200 text-red-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors">
-              Delete
-            </button>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="flex-1 bg-red-100 hover:bg-red-200 text-red-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

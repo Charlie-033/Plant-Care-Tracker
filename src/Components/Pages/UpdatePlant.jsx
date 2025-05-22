@@ -4,179 +4,196 @@ import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../../Provider/AuthContext";
 import { useLoaderData } from "react-router";
 import { useContext } from "react";
-import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 // import { toast } from "react-toastify";
 
 const UpdatePlant = () => {
-  const {user } = useContext(AuthContext)
-    const plant = useLoaderData();
-    console.log(plant);
-    const {_id, name, category, photo, description, careLevel, wateringFrequency, lastWateredDate, healthStatus, nextWateredDate} = plant;
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date(nextWateredDate));
-    const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const updatePlant = Object.fromEntries(formData.entries());
-        console.log(updatePlant);
-        // Send Update Plant Data to server
-        fetch(`http://localhost:3001/plants/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(updatePlant)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount){
-                toast.success('Plant Updated Successfully');
-                console.log(data);
-            }
-        })
+  const { user } = useContext(AuthContext);
+  const plant = useLoaderData();
+  console.log(plant);
+  const {
+    _id,
+    name,
+    category,
+    photo,
+    description,
+    careLevel,
+    wateringFrequency,
+    lastWateredDate,
+    healthStatus,
+    nextWateredDate,
+  } = plant;
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date(nextWateredDate));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const updatePlant = Object.fromEntries(formData.entries());
+    console.log(updatePlant);
+    // Send Update Plant Data to server
+    fetch(`http://localhost:3001/plants/${_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatePlant),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Plant Updated Successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+  return (
+    <div className="space-y-5 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-orange-50 to-teal-50 rounded-lg shadow-sm">
+      <div>
+        <h1 className="text-3xl md:text-4xl italic text-green-700 font-semibold px-24 text-center">
+          Update Plant
+        </h1>
+        <p className="text-center text-md font-semibold px-2 md:px-12 italic">
+          Fill in the details below to add a new plant to your collection.
+          Include the plant’s name, image, description, and any specific care
+          instructions to help track its growth and health.
+        </p>
+      </div>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full md:w-8/12 px-4 mx-auto space-y-5"
+      >
+        <div className="flex gap-10">
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Name</span>
+            <input
+              type="text"
+              name="name"
+              defaultValue={name}
+              placeholder="Enter Plant Name"
+              className="input input-neutral w-full"
+            />
+          </label>
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Category</span>
+            <select
+              name="category"
+              defaultValue={category}
+              required
+              className="input input-neutral w-full"
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              <option value="Succulent">Succulent</option>
+              <option value="Flowering">Flowering</option>
+              <option value="Fern">Fern</option>
+            </select>
+          </label>
+        </div>
+        <div className="flex gap-10">
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Image</span>
+            <input
+              type="text"
+              name="photo"
+              defaultValue={photo}
+              placeholder="Enter Photo URL"
+              className="input input-neutral w-full"
+            />
+          </label>
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Description</span>
+            <input
+              type="text"
+              name="description"
+              defaultValue={description}
+              placeholder="Enter Plant Description"
+              className="input input-neutral w-full"
+            />
+          </label>
+        </div>
+        <div className="flex gap-10">
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Care Level</span>
+            <select
+              name="careLevel"
+              defaultValue={careLevel}
+              required
+              className="input input-neutral w-full"
+            >
+              <option value="" disabled>
+                Select a level
+              </option>
+              <option value="Easy">Easy</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Difficult">Difficult</option>
+            </select>
+          </label>
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Watering Frequency</span>
+            <select
+              name="wateringFrequency"
+              defaultValue={wateringFrequency}
+              required
+              className="input input-neutral w-full"
+            >
+              <option value="" disabled>
+                Select a frequency
+              </option>
+              <option value="Every 2 days">Every 2 days</option>
+              <option value="Every 3 days">Every 3 days</option>
+              <option value="Every 5 days">Every 5 days</option>
+              <option value="Every 7 days">Every 7 days</option>
+            </select>
+          </label>
+        </div>
+        <div className="flex gap-10">
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Last Watered Date</span>
 
-    }
-    return (
-       <div className="space-y-5 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-orange-50 to-teal-50 rounded-lg shadow-sm">
-             <div>
-               <h1 className="text-3xl md:text-4xl italic text-green-700 font-semibold px-24 text-center">
-                 Update Plant
-               </h1>
-               <p className="text-center text-md font-semibold px-2 md:px-12 italic">
-                 Fill in the details below to add a new plant to your collection.
-                 Include the plant’s name, image, description, and any specific care
-                 instructions to help track its growth and health.
-               </p>
-             </div>
-             <form onSubmit={handleSubmit} className="w-full md:w-8/12 px-4 mx-auto space-y-5">
-               <div className="flex gap-10">
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Name</span>
-                   <input
-                     type="text"
-                     name="name"
-                     defaultValue={name}
-                     placeholder="Enter Plant Name"
-                     className="input input-neutral w-full"
-                   />
-                 </label>
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Category</span>
-                   <select
-                     name="category"
-                     defaultValue={category}
-                     required
-                     className="input input-neutral w-full"
-                   >
-                     <option value="" disabled>
-                       Select a category
-                     </option>
-                     <option value="Succulent">Succulent</option>
-                     <option value="Flowering">Flowering</option>
-                     <option value="Fern">Fern</option>
-                   </select>
-                 </label>
-               </div>
-               <div className="flex gap-10">
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Image</span>
-                   <input
-                     type="text"
-                     name="photo"
-                     defaultValue={photo}
-                     placeholder="Enter Photo URL"
-                     className="input input-neutral w-full"
-                   />
-                 </label>
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Description</span>
-                   <input
-                     type="text"
-                     name="description"
-                     defaultValue={description}
-                     placeholder="Enter Plant Description"
-                     className="input input-neutral w-full"
-                   />
-                 </label>
-               </div>
-               <div className="flex gap-10">
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Care Level</span>
-                   <select
-                     name="careLevel"
-                     defaultValue={careLevel}
-                     required
-                     className="input input-neutral w-full"
-                   >
-                     <option value="" disabled>
-                       Select a level
-                     </option>
-                     <option value="Easy">Easy</option>
-                     <option value="Moderate">Moderate</option>
-                     <option value="Difficult">Difficult</option>
-                   </select>
-                 </label>
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Watering Frequency</span>
-                    <select
-                     name="wateringFrequency"
-                     defaultValue={wateringFrequency}
-                     required
-                     className="input input-neutral w-full"
-                   >
-                     <option value="" disabled>
-                       Select a frequency
-                     </option>
-                     <option value="Every 2 days">Every 2 days</option>
-                     <option value="Every 3 days">Every 3 days</option>
-                     <option value="Every 5 days">Every 5 days</option>
-                     <option value="Every 7 days">Every 7 days</option>
-                   </select>
-                 </label>
-               </div>
-               <div className="flex gap-10">
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Last Watered Date</span>
-                     
-                     <DatePicker 
-                     name="lastWateredDate"
-                     selected={startDate}
-                     onChange={date => setStartDate(date)}
-                     className="input input-neutral w-full"
-                     defaultValue={lastWateredDate}
-                     />
-                  
-                 </label>
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Health Status</span>
-                   <select
-                     name="healthStatus"
-                     defaultValue={healthStatus}
-                     required
-                     className="input input-neutral w-full"
-                   >
-                     <option value="" disabled>
-                       Select Health Status
-                     </option>
-                     <option value="Poor">Poor</option>
-                     <option value="Normal">Normal</option>
-                     <option value="Good">Good</option>
-                     <option value="Great">Great</option>
-                   </select>
-                 </label>
-                 <label className="w-full italic">
-                   <span className="text-xl font-semibold">Next Watered Date</span>
-                   <DatePicker 
-                     name="nextWateredDate"
-                     selected={endDate}
-                     onChange={date => setEndDate(date)}
-                     className="input input-neutral w-full"
-                     defaultValue={nextWateredDate}
-                     />
-                 </label>
-               </div>
-               <div className="flex gap-10">
+            <DatePicker
+              name="lastWateredDate"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              className="input input-neutral w-full"
+              defaultValue={lastWateredDate}
+            />
+          </label>
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Health Status</span>
+            <select
+              name="healthStatus"
+              defaultValue={healthStatus}
+              required
+              className="input input-neutral w-full"
+            >
+              <option value="" disabled>
+                Select Health Status
+              </option>
+              <option value="Poor">Poor</option>
+              <option value="Normal">Normal</option>
+              <option value="Good">Good</option>
+              <option value="Great">Great</option>
+            </select>
+          </label>
+          <label className="w-full italic">
+            <span className="text-xl font-semibold">Next Watered Date</span>
+            <DatePicker
+              name="nextWateredDate"
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              className="input input-neutral w-full"
+              defaultValue={nextWateredDate}
+            />
+          </label>
+        </div>
+        <div className="flex gap-10">
           <label className="w-full italic">
             <span className="text-xl font-semibold">User Name</span>
             <input
@@ -198,12 +215,12 @@ const UpdatePlant = () => {
             />
           </label>
         </div>
-               <button type="submit" className="btn bg-green-800 w-full text-white">
-                 Update Plant
-               </button>
-             </form>
-           </div>
-    );
+        <button type="submit" className="btn bg-green-800 w-full text-white">
+          Update Plant
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default UpdatePlant;

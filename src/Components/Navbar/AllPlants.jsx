@@ -5,19 +5,38 @@ import { Link } from "react-router";
 const AllPlants = () => {
   // const loader = <Loader/>
   const [plants, setPlants] = useState([]);
+  const [sortBy, setSortBy] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:3001/plants")
+    let url = "http://localhost:3001/plants";
+    if(sortBy === "wateringFrequency"){
+      url += "?sort=wateringFrequency";
+    } else if(sortBy === "careLevel"){
+      url += "?sort=careLevel";
+    } else url
+
+
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setLoading(false);
         setPlants(data);
+        setLoading(false);
       });
-  }, []);
+  }, [sortBy, loading]);
   return (
     <div className="overflow-x-auto py-10 pl-5">
       <h2 className="text-center text-4xl border-b-2 pb-3 border-gray-600 italic font-bold text-green-700">All Plants</h2>
+      <label className="flex items-center gap-3 my-5">
+        <span className=" font-semibold">Sort by :</span>
+        <select name="" value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="rounded">
+
+          <option value="" >Select a category</option>
+          <option value="wateringFrequency">Watering Freequency</option>
+          <option value="careLevel">Care level</option>
+        </select>
+      </label>
+  
       <table className="table">
         {/* head */}
         <thead className="bg-gradient-to-b from-green-50 to-teal-50">

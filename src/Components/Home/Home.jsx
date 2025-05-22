@@ -5,6 +5,7 @@ import NewPlants from "./NewPlants";
 import BeginnerPlant from "./BeginnerPlant";
 import Mistakes from "./Mistakes";
 import Welcome from "./Welcome";
+// import Theme from "../Others/Theme";
 
 const Home = () => {
   DocumentTitle("Home");
@@ -12,6 +13,7 @@ const Home = () => {
     <div>
       <div>
         <Hero />
+        {/* <Theme/> */}
       </div>
       <div>
         <NewPlants />

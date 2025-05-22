@@ -70,6 +70,7 @@ const Register = () => {
     googleSignIn()
     .then(res => {
       // console.log(res);
+      toast.success("User Created Successfully");
       navigate(`${location.state ? location.state : "/"}`)
     })
     .catch(error => {

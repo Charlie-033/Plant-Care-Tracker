@@ -4,7 +4,7 @@ import AuthContext from "../../Provider/AuthContext";
 import { FaUserAltSlash } from "react-icons/fa";
 
 
-const Navbar = () => {
+const Navbar = ({isDark, setIsDark}) => {
   const { user, logOut } = useContext(AuthContext);
   // console.log(user);
   // console.log(user?.photoURL);
@@ -125,6 +125,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex items-center gap-3">
+        <button className='btn btn-secondary' onClick={() =>setIsDark(!isDark)}>
+                {isDark ? "Light Mode" : "Dark Mode"}
+            </button>
         <span className={`cursor-pointer tooltip tooltip-bottom`} data-tip={user?.displayName}>
           {
             user?.photoURL ? (

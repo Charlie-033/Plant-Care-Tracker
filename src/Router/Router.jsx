@@ -9,6 +9,7 @@ import MyPlants from "../Components/Navbar/MyPlants";
 import PrivateRoute from "../Provider/PrivateRoute";
 import PlantDetails from "../Components/Pages/PlantDetails";
 import UpdatePlant from "../Components/Pages/UpdatePlant";
+import Errorpage from "../Components/Pages/Errorpage";
 
 export const router = createBrowserRouter([
   {
@@ -64,4 +65,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <Errorpage/>
+  }
 ]);
