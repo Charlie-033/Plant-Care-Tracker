@@ -24,7 +24,7 @@ const Errorpage = () => {
           to="/"
           class="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg shadow-md transition duration-300 transform hover:scale-105"
         >
-          Beam Me Back Home
+         Back Me Home
         </Link>
 
     

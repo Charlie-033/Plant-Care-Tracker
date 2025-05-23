@@ -2,20 +2,22 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import AuthContext from "../../Provider/AuthContext";
 import { FaUserAltSlash } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
+import { useTheme } from "../../Provider/ThemeProvider";
 
-
-const Navbar = ({isDark, setIsDark}) => {
+const Navbar = () => {
+  const {isDark, setIsDark} = useTheme();
   const { user, logOut } = useContext(AuthContext);
   // console.log(user);
   // console.log(user?.photoURL);
   const handleLogOut = () => {
     logOut()
-    .then(res => console.log(res))
-    .catch(error => console.error(error));
-  }
+      .then((res) => console.log(res))
+      .catch((error) => console.error(error));
+  };
 
   return (
-    <div className="navbar bg-yellow-100 px-3 md:px-8 lg:px-16">
+    <div className="navbar bg-yellow-100 px-3 md:px-8 lg:px-16 dark:bg-gray-900">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,7 +39,7 @@ const Navbar = ({isDark, setIsDark}) => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow dark:bg-gray-900 text-white"
           >
             <li>
               <NavLink to="/">Home</NavLink>
@@ -55,10 +57,13 @@ const Navbar = ({isDark, setIsDark}) => {
         </div>
         <div className="flex items-center justify-center">
           <img
+            data-tooltip-id="logo-tooltip"
+            data-tooltip-content="PlantLab"
             src="https://i.ibb.co/xtT2vBWq/logo-removebg-preview.png"
             alt=""
-            className="w-7 md:w-10 lg:w-15 hidden md:block bg-yellow-100"
+            className="w-7 md:w-10 lg:w-15 hidden md:block bg-yellow-100 dark:bg-gray-900 rounded-full"
           />
+
           <a className="text-2xl lg:text-4xl font-bold text-green-900">
             PlantLab
           </a>
@@ -125,33 +130,45 @@ const Navbar = ({isDark, setIsDark}) => {
         </ul>
       </div>
       <div className="navbar-end flex items-center gap-3">
-        <button className='btn btn-secondary' onClick={() =>setIsDark(!isDark)}>
-                {isDark ? "Light Mode" : "Dark Mode"}
-            </button>
-        <span className={`cursor-pointer tooltip tooltip-bottom`} data-tip={user?.displayName}>
-          {
-            user?.photoURL ? (
-              <img alt="" src={user.photoURL} className="rounded-full w-10 "/>
-            ) : (<FaUserAltSlash className="text-2xl text-green-800"/>)
-          }
+        <button
+          className="p-1 rounded-3xl bg-yellow-100 font-bold md:border-2 text-xs dark:text-white dark:bg-gray-900 dark:border-white"
+          onClick={() => setIsDark(!isDark)}
+        >
+          {isDark ? "☀️Light" : "🌙Dark"}
+        </button>
+        <span
+          data-tooltip-id="user-tooltip"
+          className="cursor-pointer"
+          data-tooltip-content={user?.displayName || "User Unavailable"}
+          data-tooltip-delay-hide={500}
+        >
+          {user?.photoURL ? (
+            <img alt="" src={user.photoURL} className="rounded-full w-10 " />
+          ) : (
+            <FaUserAltSlash className="text-2xl text-green-800" />
+          )}
+          <Tooltip id="user-tooltip" place="bottom" />
         </span>
         {user ? (
           <>
             <Link to="/auth/login">
-              <button onClick={handleLogOut} className="btn btn-outline btn-success text-green-800 font-bold rounded-full">
-                LogOut 
+              <button
+                onClick={handleLogOut}
+                className="btn-sm btn btn-outline btn-success text-green-800 font-bold rounded-full"
+              >
+                LogOut
               </button>
             </Link>
           </>
         ) : (
           <>
             <Link to="/auth/login">
-              <button className="btn btn-outline btn-success text-green-800 font-bold rounded-full">
+              <button className="btn-sm btn btn-outline btn-success text-green-800 font-bold rounded-full">
                 Login
               </button>
             </Link>
             <Link to="/auth/register">
-              <button className="btn btn-outline btn-success text-green-800 font-bold rounded-full">
+              <button className="btn-sm btn btn-outline btn-success text-green-800 font-bold rounded-full">
                 Register
               </button>
             </Link>
