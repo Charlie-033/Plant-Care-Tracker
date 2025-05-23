@@ -8,7 +8,7 @@ const AllPlants = () => {
   const [sortBy, setSortBy] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    let url = "http://localhost:3001/plants";
+    let url = "https://plant-care-tracker-server-nine.vercel.app/plants";
     if(sortBy === "wateringFrequency"){
       url += "?sort=wateringFrequency";
     } else if(sortBy === "careLevel"){

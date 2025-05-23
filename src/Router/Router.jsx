@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'plants/:id',
-        loader: ({params}) => fetch(`http://localhost:3001/plants/${params.id}`),
+        loader: ({params}) => fetch(`https://plant-care-tracker-server-nine.vercel.app/plants/${params.id}`),
         element: <PrivateRoute>
             <PlantDetails/>
         </PrivateRoute>
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'updateplant/:id',
-        loader: ({params}) => fetch(`http://localhost:3001/plants/${params.id}`),
+        loader: ({params}) => fetch(`https://plant-care-tracker-server-nine.vercel.app/plants/${params.id}`),
         element: <PrivateRoute>
             <UpdatePlant/>
         </PrivateRoute>

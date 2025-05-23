@@ -7,7 +7,7 @@ const NewPlants = () => {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:3001/plants/recent")
+    fetch("https://plant-care-tracker-server-nine.vercel.app/plants/recent")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

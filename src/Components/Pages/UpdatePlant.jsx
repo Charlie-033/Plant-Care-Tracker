@@ -32,7 +32,7 @@ const UpdatePlant = () => {
     const updatePlant = Object.fromEntries(formData.entries());
     console.log(updatePlant);
     // Send Update Plant Data to server
-    fetch(`http://localhost:3001/plants/${_id}`, {
+    fetch(`https://plant-care-tracker-server-nine.vercel.app/plants/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
