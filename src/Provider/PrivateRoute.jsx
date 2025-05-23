@@ -13,7 +13,7 @@ const PrivateRoute = ({children}) => {
     if(user && user.email){
         return children;
     } else {
-        toast.info('You are not logged in!');
+        toast.info('You are not logged in! Please login first.');
         return <Navigate to="/auth/login" state={location.pathname} replace />
     }
 };

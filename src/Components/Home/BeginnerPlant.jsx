@@ -10,6 +10,7 @@ const BeginnerPlant = () => {
             alt=""
             className="rounded-lg"
           />
+
         </div>
         <div className="lg:order-2 lg:w-1/2">
           <h1 className="text-3xl font-semibold italic text-green-400">
