@@ -11,9 +11,9 @@ The **Plant Care Tracker** is a full-stack, mobile-responsive web app for plant 
 - ✅ **User Authentication** (Email + Google/GitHub): Secure login/register with redirect and success/error messages.
 - 🌱 **Add, View, Update & Delete Plants**: Users can manage personal plant data with a clean UI and confirmation modals.
 - 📅 **Care Tracking**: Log watering frequency, health status, and receive reminders.
-- 🎨 **Responsive Themed Design**: Built with a unique "Indoor Jungle" plant theme — mobile, tablet & desktop ready.
+- 🎨 **Responsive Themed Design**: Built with a unique "Plant Lab" plant theme — mobile, tablet & desktop ready.
 - 🌗 **Dark/Light Mode Toggle**: Seamlessly switch between light and dark themes.
-- 📦 **Tech Stack**: React, Tailwind, Firebase Auth, Express, MongoDB, Lottie, React Tooltip, Date-fns.
+- 📦 **Tech Stack**: React, Tailwind, Firebase Auth, Express, MongoDB, Lottie, React Tooltip, Datepicker.
 
 ---
 
@@ -29,8 +29,8 @@ The **Plant Care Tracker** is a full-stack, mobile-responsive web app for plant 
 
 ## 📁 Repositories
 
-- **Client:** [GitHub Repo (Client)](https://github.com/your-username/plant-care-tracker-client)
-- **Server:** [GitHub Repo (Server)](https://github.com/your-username/plant-care-tracker-server)
+- **Client:** (https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-Charlie-033)
+- **Server:** (https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-Charlie-033)
 
 
 
