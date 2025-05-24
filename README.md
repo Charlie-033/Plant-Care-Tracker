@@ -1,12 +1,36 @@
-# React + Vite
+# 🌿 Plant Care Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live URL:** (https://plant-care-tracker-5b57e.web.app/)
 
-Currently, two official plugins are available:
+The **Plant Care Tracker** is a full-stack, mobile-responsive web app for plant lovers to track and manage care tasks for their indoor and outdoor plants. This app provides personalized dashboards, secure authentication, and intuitive UI themed around houseplant management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🔑 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ **User Authentication** (Email + Google/GitHub): Secure login/register with redirect and success/error messages.
+- 🌱 **Add, View, Update & Delete Plants**: Users can manage personal plant data with a clean UI and confirmation modals.
+- 📅 **Care Tracking**: Log watering frequency, health status, and receive reminders.
+- 🎨 **Responsive Themed Design**: Built with a unique "Indoor Jungle" plant theme — mobile, tablet & desktop ready.
+- 🌗 **Dark/Light Mode Toggle**: Seamlessly switch between light and dark themes.
+- 📦 **Tech Stack**: React, Tailwind, Firebase Auth, Express, MongoDB, Lottie, React Tooltip, Date-fns.
+
+---
+
+## 🔧 Dev Highlights
+
+- 🔐 Private routes persist across reloads (no login redirect on refresh).
+- 🔍 All Plants Page includes **sorting** by watering date and care level.
+- 🚫 No Lorem Ipsum — all content is meaningful, with user-friendly alerts via SweetAlert2/toastify.
+- 🌐 Environment variables used to hide all sensitive keys.
+- 🔄 Fully responsive and tested on mobile, tablet, and desktop.
+
+---
+
+## 📁 Repositories
+
+- **Client:** [GitHub Repo (Client)](https://github.com/your-username/plant-care-tracker-client)
+- **Server:** [GitHub Repo (Server)](https://github.com/your-username/plant-care-tracker-server)
+
+
+
