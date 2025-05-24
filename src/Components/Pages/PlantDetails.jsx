@@ -2,17 +2,17 @@ import React from "react";
 import {  useLoaderData } from "react-router";
 import DocumentTitle from "../Others/DocumentTitle";
 
-DocumentTitle("Plant Details");
 
 const PlantDetails = () => {
   const plant = useLoaderData();
-  console.log(plant);
+  // console.log(plant);
+  DocumentTitle("Plant Details");
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 ">
       <div
-        className="bg-white shadow-lg rounded-2xl  overflow-hidden p-2 bg-gradient-to-br from-green-50 to-emerald-100 
+        className="shadow-lg rounded-2xl overflow-hidden p-2 bg-gradient-to-br from-green-50 to-emerald-100 
             rounded-lg shadow-md p-4 
-            border border-green-200 dark:border-gray-700 dark:bg-linear-to-r from-slate-600 to-slate-700"
+            border border-green-200 dark:bg-linear-to-r dark:from-slate-600 dark:to-slate-700"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="h-80 flex items-center justify-center overflow-hidden">

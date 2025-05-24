@@ -7,7 +7,7 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    console.log(user)
+    // console.log(user)
     const provider = new GoogleAuthProvider();
 
     const googleSignIn = () => {
@@ -19,9 +19,12 @@ const AuthProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const updateUser = (userProfile) => {
-        setLoading(true)
-        return updateProfile(auth.currentUser, userProfile)
+    const updateUser = async(userProfile) => {
+        setLoading(true);
+        await updateProfile(auth.currentUser, userProfile);
+        await auth.currentUser.reload();
+        setLoading(false);
+        return auth.currentUser;
     }
     
     const loginUser = (email, password) => {

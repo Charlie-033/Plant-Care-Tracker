@@ -10,7 +10,7 @@ const NewPlants = () => {
     fetch("https://plant-care-tracker-server-nine.vercel.app/plants/recent")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setPlants(data);
         setLoading(false);
       });

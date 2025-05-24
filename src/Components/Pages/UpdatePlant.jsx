@@ -10,7 +10,7 @@ import DocumentTitle from "../Others/DocumentTitle";
 const UpdatePlant = () => {
   const { user } = useContext(AuthContext);
   const plant = useLoaderData();
-  console.log(plant);
+  // console.log(plant);
   const navigate = useNavigate();
   const {
     _id,
@@ -31,7 +31,7 @@ const UpdatePlant = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatePlant = Object.fromEntries(formData.entries());
-    console.log(updatePlant);
+    // console.log(updatePlant);
     // Send Update Plant Data to server
     fetch(`https://plant-care-tracker-server-nine.vercel.app/plants/${_id}`, {
       method: "PUT",
@@ -154,6 +154,8 @@ const UpdatePlant = () => {
               <option value="Every 3 days">Every 3 days</option>
               <option value="Every 5 days">Every 5 days</option>
               <option value="Every 7 days">Every 7 days</option>
+              <option value="Every 10 days">Every 10 days</option>
+              <option value="Every 14 days">Every 14 days</option>
             </select>
           </label>
         </div>

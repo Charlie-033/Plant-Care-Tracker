@@ -18,7 +18,7 @@ const MyPlants = () => {
         `https://plant-care-tracker-server-nine.vercel.app/plants/user/${encodeURIComponent(email)}`
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setPlants(data);
     };
     fetchPlants();

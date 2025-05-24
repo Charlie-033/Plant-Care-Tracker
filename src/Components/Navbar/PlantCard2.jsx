@@ -18,7 +18,7 @@ const PlantCard2 = ({ plant }) => {
   return (
     <div
       key={_id}
-      className="relative bg-white rounded-xl shadow-md overflow-hidden border border-green-100 hover:shadow-lg transition-shadow duration-300 max-w-sm mx-auto dark:bg-gray-600"
+      className="relative bg-white rounded-xl shadow-md overflow-hidden border border-green-100 hover:shadow-lg transition-shadow duration-300 max-w-sm mx-auto dark:bg-gray-600 w-full"
     >
       <div className="h-48 bg-green-50 flex items-center justify-center overflow-hidden">
         <img src={photo} alt={name} className="w-full h-full object-cover" />

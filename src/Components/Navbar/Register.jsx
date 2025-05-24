@@ -46,19 +46,18 @@ const Register = () => {
       return;
     }
 
-
     createUser(email, password)
       .then((result) => {
-        const user  = result.user;
-        console.log(user);
+        // const user  = result.user;
+        // console.log(user);
         return updateUser({
-            displayName: name,
-            photoURL: photo
-        })
+          displayName: name,
+          photoURL: photo,
+        });
       })
       .then(() => {
-        toast.success("User Created Successfully")
-        navigate(`${location.state ? location.state : "/"}`)
+        toast.success("User Created Successfully");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         setError("Error:", error.message);
@@ -68,16 +67,23 @@ const Register = () => {
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
     googleSignIn()
-    .then(res => {
-      // console.log(res);
-      toast.success("User Created Successfully");
-      navigate(`${location.state ? location.state : "/"}`)
-    })
-    .catch(error => {
-      setError(error.message)
-    })
-  }
-  DocumentTitle("Register")
+      .then((res) => {
+        const user = res.user;
+        // console.log(res);
+        return updateUser({
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        });
+      })
+      .then(() => {
+        toast.success("User Created Successfully");
+        navigate(`${location.state ? location.state : "/"}`);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+  DocumentTitle("Register");
   return (
     <div className="flex justify-center items-center py-10">
       <div className="card bg-base-100 w-full max-w-lg items-center shrink-0 shadow-xl dark:bg-gray-500">
@@ -126,7 +132,10 @@ const Register = () => {
               placeholder="Password"
               required
             />
-            <p className="text-xs pt-1 text-gray-600 dark:text-gray-800">Note: Password must have at least 6 charecters & one lowercase, one uppercase and one numaric digit!</p>
+            <p className="text-xs pt-1 text-gray-600 dark:text-gray-800">
+              Note: Password must have at least 6 charecters & one lowercase,
+              one uppercase and one numaric digit!
+            </p>
             <div className="pt-3">
               <label className="label">
                 <input
@@ -138,12 +147,16 @@ const Register = () => {
                 Accept Terms & Conditions
               </label>
             </div>
-          {
-            passError && <p className="text-red-500 font-semibold dark:text-gray-800">{passError}</p>
-          }
-          {
-            error && <p className="text-red-500 font-bold dark:text-gray-800">{error}</p>
-          }
+            {passError && (
+              <p className="text-red-500 font-semibold dark:text-gray-800">
+                {passError}
+              </p>
+            )}
+            {error && (
+              <p className="text-red-500 font-bold dark:text-gray-800">
+                {error}
+              </p>
+            )}
             <button type="submit" className="btn btn-primary mt-4 w-full">
               Register
             </button>
@@ -154,8 +167,21 @@ const Register = () => {
               </Link>
             </p>
           </form>
-           <button onClick={handleGoogleSignIn} className='btn btn-active w-full bg-orange-400'><span className='text-xl'><FcGoogle/></span> SignIn With Google</button>
-           <button className='btn btn-neutral w-full '><span className='text-xl'><FaGithub/></span> SignIn With GitHub</button>
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn btn-active w-full bg-orange-400"
+          >
+            <span className="text-xl">
+              <FcGoogle />
+            </span>{" "}
+            SignIn With Google
+          </button>
+          <button className="btn btn-neutral w-full ">
+            <span className="text-xl">
+              <FaGithub />
+            </span>{" "}
+            SignIn With GitHub
+          </button>
         </div>
       </div>
     </div>

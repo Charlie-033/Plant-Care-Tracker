@@ -16,7 +16,7 @@ const AddPlants = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newPlant = Object.fromEntries(formData.entries());
-    console.log(newPlant);
+    // console.log(newPlant);
 
     // Send New Plant Data to server
     fetch("https://plant-care-tracker-server-nine.vercel.app/plants", {
@@ -30,7 +30,7 @@ const AddPlants = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Plant Added Successfully");
-          console.log(data);
+          // console.log(data);
           navigate("/myplants");
         }
       });
@@ -128,6 +128,8 @@ const AddPlants = () => {
               <option value="Every 3 days">Every 3 days</option>
               <option value="Every 5 days">Every 5 days</option>
               <option value="Every 7 days">Every 7 days</option>
+              <option value="Every 10 days">Every 10 days</option>
+              <option value="Every 14 days">Every 14 days</option>
             </select>
           </label>
         </div>

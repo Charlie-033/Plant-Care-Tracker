@@ -12,7 +12,9 @@ const Navbar = () => {
   // console.log(user?.photoURL);
   const handleLogOut = () => {
     logOut()
-      .then((res) => console.log(res))
+      .then((res) => {
+        // console.log(res)
+      })
       .catch((error) => console.error(error));
   };
 
