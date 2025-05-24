@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../Provider/AuthContext";
 import PlantCard from "./PlantCard";
 import { Link } from "react-router";
+import DocumentTitle from "../Others/DocumentTitle";
 
 const MyPlants = () => {
   const [plants, setPlants] = useState([]);
@@ -22,6 +23,8 @@ const MyPlants = () => {
     };
     fetchPlants();
   }, [email]);
+
+  DocumentTitle("My Plants");
 
   return (
     <div className="py-5 max-w-7xl mx-auto">

@@ -46,44 +46,44 @@ const Login = () => {
   DocumentTitle("Login");
   return (
     <div className="flex justify-center items-center py-10">
-      <div className="card bg-base-100 w-full max-w-lg items-center shrink-0 shadow-xl">
+      <div className="card bg-base-100 w-full max-w-lg items-center shrink-0 shadow-xl dark:bg-gray-500">
         <div className="card-body py-12">
           <form onSubmit={handleLogin}>
-            <h2 className="text-2xl font-semibold text-center pb-5 border-b border-gray-300">
+            <h2 className="text-2xl font-semibold text-center pb-5 border-b border-gray-300 dark:text-gray-800">
               Login Your Account
             </h2>
-            <label className="label text-md font-semibold pt-5 pb-2">
+            <label className="label text-md font-semibold pt-5 pb-2 dark:text-gray-800">
               Email
             </label>
             <input
               type="email"
               name="email"
-              className="input w-full bg-base-200 border-none"
+              className="input w-full bg-base-200 border-none dark:text-gray-800"
               placeholder="Email Address"
               required
             />
-            <label className="label text-md font-semibold pt-5 pb-2">
+            <label className="label text-md font-semibold pt-5 pb-2 dark:text-gray-800">
               Password
             </label>
             <input
               type="password"
               name="password"
-              className="input w-full bg-base-200 border-none"
+              className="input w-full bg-base-200 border-none dark:text-gray-800"
               placeholder="Password"
               required
             />
-            <p>
+           
               {error && (
-                <p className="text-red-600 text-sm font-semibold">{error}</p>
+                <p className="text-red-600 text-sm font-semibold dark:text-gray-800">{error}</p>
               )}
-            </p>
-            <div className="pt-3 underline text-sm cursor-pointer">
+            
+            <div className="pt-3 underline text-sm cursor-pointer dark:text-gray-800">
               Forgot password?
             </div>
             <button type="submit" className="btn btn-primary mt-4 w-full">
               Login
             </button>
-            <p className="text-center pt-5">
+            <p className="text-center pt-5 dark:text-gray-800">
               Dont’t Have An Account ?{" "}
               <Link to="/auth/register" className="text-orange-600">
                 Register

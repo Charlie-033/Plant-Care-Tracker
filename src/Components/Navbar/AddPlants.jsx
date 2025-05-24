@@ -3,11 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../../Provider/AuthContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
+import DocumentTitle from "../Others/DocumentTitle";
 
 const AddPlants = () => {
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,16 +31,18 @@ const AddPlants = () => {
         if (data.insertedId) {
           toast.success("Plant Added Successfully");
           console.log(data);
+          navigate("/myplants");
         }
       });
   };
+  DocumentTitle("Add Plant");
   return (
-    <div className="space-y-5 px-2 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-green-50 to-teal-50 rounded-lg shadow-sm">
+    <div className="space-y-5 px-2 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-green-50 to-teal-50 rounded-lg shadow-sm dark:bg-liner-gradient-to-b dark:from-gray-800 dark:to-gray-900">
       <div className="">
-        <h1 className="text-3xl md:text-4xl italic text-green-700 font-semibold px-24 text-center">
+        <h1 className="text-3xl md:text-4xl italic text-green-700 font-semibold px-24 text-center dark:text-gray-300">
           Add A Plant
         </h1>
-        <p className="text-center text-md font-semibold px-2 md:px-12 italic">
+        <p className="text-center text-md font-semibold px-2 md:px-12 italic dark:text-gray-300">
           Fill in the details below to add a new plant to your collection.
           Include the plant’s name, image, description, and any specific care
           instructions to help track its growth and health.
@@ -46,21 +51,21 @@ const AddPlants = () => {
       <form onSubmit={handleSubmit} className="w-full md:w-8/12 px-4 mx-auto space-y-5">
         <div className="flex gap-10">
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Name</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Name</span>
             <input
               type="text"
               name="name"
-              placeholder="Enter Plant Name"
-              className="input input-neutral w-full"
+              placeholder="Enter Plant Name "
+              className="input input-neutral w-full dark:text-gray-800"
             />
           </label>
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Category</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Category</span>
             <select
               name="category"
               defaultValue=""
               required
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             >
               <option value="" disabled>
                 Select a category
@@ -73,32 +78,32 @@ const AddPlants = () => {
         </div>
         <div className="flex gap-10">
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Image</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Image</span>
             <input
               type="text"
               name="photo"
               placeholder="Enter Photo URL"
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             />
           </label>
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Description</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Description</span>
             <input
               type="text"
               name="description"
               placeholder="Enter Plant Description"
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             />
           </label>
         </div>
         <div className="flex gap-10">
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Care Level</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Care Level</span>
             <select
               name="careLevel"
               defaultValue=""
               required
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             >
               <option value="" disabled>
                 Select a level
@@ -109,12 +114,12 @@ const AddPlants = () => {
             </select>
           </label>
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Watering Frequency</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Watering Frequency</span>
             <select
               name="wateringFrequency"
               defaultValue=""
               required
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             >
               <option value="" disabled>
                 Select a frequency
@@ -128,22 +133,22 @@ const AddPlants = () => {
         </div>
         <div className="flex gap-10">
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Last Watered Date</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Last Watered Date</span>
 
             <DatePicker
               name="lastWateredDate"
               selected={startDate}
               onChange={(date) => setStartDate(date)}
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             />
           </label>
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Health Status</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Health Status</span>
             <select
               name="healthStatus"
               defaultValue=""
               required
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             >
               <option value="" disabled>
                 Select Health Status
@@ -155,20 +160,20 @@ const AddPlants = () => {
             </select>
           </label>
           <label className="w-full italic">
-            <span className="text-xl font-semibold">Next Watered Date</span>
+            <span className="text-xl font-semibold dark:text-gray-300">Next Watered Date</span>
             <DatePicker
               name="nextWateredDate"
               selected={endDate}
               onChange={(date) => setEndDate(date)}
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
             />
           </label>
         </div>
         <div className="flex gap-10">
           <label className="w-full italic">
-            <span className="text-xl font-semibold">User Name</span>
+            <span className="text-xl font-semibold dark:text-gray-300">User Name</span>
             <input
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
               type="text"
               name="userName"
               value={user?.displayName}
@@ -176,9 +181,9 @@ const AddPlants = () => {
             />
           </label>
           <label className="w-full italic">
-            <span className="text-xl font-semibold">User Email</span>
+            <span className="text-xl font-semibold dark:text-gray-300">User Email</span>
             <input
-              className="input input-neutral w-full"
+              className="input input-neutral w-full dark:text-gray-800"
               type="text"
               name="userEmail"
               value={user?.email}

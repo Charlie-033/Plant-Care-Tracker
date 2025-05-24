@@ -7,13 +7,13 @@ import ScrolltoTop from '../Components/Others/ScrolltoTop';
 
 const RootLayout = () => {
     return (
-        <div className=' min-h-screen flex flex-col dark:bg-gray-900 dark:text-white'>
+        <div className=' min-h-screen flex flex-col'>
             <ToastContainer/>
             <ScrolltoTop/>
             <header>
                 <Navbar></Navbar>
             </header>
-            <main className='flex-grow'>
+            <main className='flex-grow dark:bg-gray-900 dark:text-white'>
                 <Outlet/>
             </main>
             <footer>

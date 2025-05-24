@@ -5,7 +5,6 @@ import NewPlants from "./NewPlants";
 import BeginnerPlant from "./BeginnerPlant";
 import Mistakes from "./Mistakes";
 import Welcome from "./Welcome";
-// import Theme from "../Others/Theme";
 
 const Home = () => {
   DocumentTitle("Home");

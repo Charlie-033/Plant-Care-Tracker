@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router";
 import Lottie from "lottie-react";
 import errorAnimation from "./lotti.json"
+import DocumentTitle from "../Others/DocumentTitle";
+
+DocumentTitle("404 - Page Not Found");
 
 const Errorpage = () => {
   return (
-    <div class="bg-gradient-to-br from-indigo-100 to-purple-200 min-h-screen flex items-center justify-center ">
+    <div class="bg-gradient-to-br from-indigo-100 to-purple-200 min-h-screen flex items-center justify-center">
       <div class="max-w-2xl mx-auto text-center">
         <div class=" flex items-center justify-center max-h-[420px] max-w-[420px] mx-auto">
         <Lottie animationData={errorAnimation}></Lottie>

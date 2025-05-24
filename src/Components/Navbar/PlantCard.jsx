@@ -49,7 +49,7 @@ const PlantCard = ({ plant, setPlants }) => {
   return (
     <div
       key={_id}
-      className="relative bg-white rounded-xl shadow-md overflow-hidden border border-green-100 hover:shadow-lg transition-shadow duration-300 max-w-sm mx-auto "
+      className="relative bg-white rounded-xl shadow-md overflow-hidden border border-green-100 hover:shadow-lg transition-shadow duration-300 max-w-sm mx-auto dark:bg-gray-600"
     >
       <div className="h-48 bg-green-50 flex items-center justify-center overflow-hidden">
         <img src={photo} alt={name} className="w-full h-full object-cover" />
@@ -68,24 +68,24 @@ const PlantCard = ({ plant, setPlants }) => {
           {category}
         </span>
 
-        <h3 className="text-xl font-bold text-gray-800 mb-1">{name}</h3>
+        <h3 className="text-xl font-bold text-gray-800 mb-1 dark:text-gray-300">{name}</h3>
 
-        <p className="text-gray-600 mb-3 line-clamp-2">{description}</p>
+        <p className="text-gray-600 mb-3 line-clamp-2 dark:text-gray-300">{description}</p>
 
         <div className="grid grid-cols-2 gap-2 text-sm mb-4">
-          <div className="flex items-center">
+          <div className="flex items-center dark:text-gray-300">
             <span className="text-gray-500 mr-1">💧</span>
             <span>{wateringFrequency}</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center dark:text-gray-300">
             <span className="text-gray-500 mr-1">🌡️</span>
             <span>{careLevel}</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center dark:text-gray-300">
             <span className="text-gray-500 mr-1">⏱️</span>
             <span>Last: {new Date(lastWateredDate).toLocaleDateString()}</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center dark:text-gray-300">
             <span className="text-gray-500 mr-1">📅</span>
             <span>Next: {new Date(nextWateredDate).toLocaleDateString()}</span>
           </div>
@@ -93,7 +93,7 @@ const PlantCard = ({ plant, setPlants }) => {
 
         <div className="flex items-center mb-4">
           <span
-            className={`w-3 h-3 rounded-full mr-2 ${
+            className={`w-3 h-3 rounded-full mr-2 dark:text-gray-300 ${
               healthStatus === "Great"
                 ? "bg-green-500"
                 : healthStatus === "Good"

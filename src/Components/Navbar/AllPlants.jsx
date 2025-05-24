@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../Others/Loader";
 import { Link } from "react-router";
+import DocumentTitle from "../Others/DocumentTitle";
 
 const AllPlants = () => {
   // const loader = <Loader/>
@@ -24,16 +25,18 @@ const AllPlants = () => {
         setLoading(false);
       });
   }, [sortBy, loading]);
+
+  DocumentTitle("All Plants");
   return (
     <div className="overflow-x-auto py-10 pl-5">
       <h2 className="text-center text-4xl border-b-2 pb-3 border-gray-600 italic font-bold text-green-700">All Plants</h2>
       <label className="flex items-center gap-3 my-5">
         <span className=" font-semibold">Sort by :</span>
-        <select name="" value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="rounded">
+        <select name="" value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="rounded ">
 
-          <option value="" >Select a category</option>
-          <option value="wateringFrequency">Watering Freequency</option>
-          <option value="careLevel">Care level</option>
+          <option className="dark:text-gray-200 dark:bg-gray-800" value="">Order</option>
+          <option className="dark:text-gray-200 dark:bg-gray-800" value="wateringFrequency">Watering Freequency</option>
+          <option className="dark:text-gray-200 dark:bg-gray-800" value="careLevel">Care level</option>
         </select>
       </label>
   
@@ -51,7 +54,7 @@ const AllPlants = () => {
         </thead>
         {loading ? (
           <tr>
-            <td colSpan={5}>
+            <td colSpan={6}>
                 <Loader />
             </td>
           </tr>

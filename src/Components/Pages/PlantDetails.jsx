@@ -1,5 +1,8 @@
 import React from "react";
 import {  useLoaderData } from "react-router";
+import DocumentTitle from "../Others/DocumentTitle";
+
+DocumentTitle("Plant Details");
 
 const PlantDetails = () => {
   const plant = useLoaderData();
@@ -9,7 +12,7 @@ const PlantDetails = () => {
       <div
         className="bg-white shadow-lg rounded-2xl  overflow-hidden p-2 bg-gradient-to-br from-green-50 to-emerald-100 
             rounded-lg shadow-md p-4 
-            border border-green-200"
+            border border-green-200 dark:border-gray-700 dark:bg-linear-to-r from-slate-600 to-slate-700"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="h-80 flex items-center justify-center overflow-hidden">
@@ -22,30 +25,30 @@ const PlantDetails = () => {
 
           <div className="p-6 flex flex-col justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-bold mb-2">{plant.name}</h2>
-              <p className="text-gray-600 italic">{plant.description}</p>
+              <h2 className="text-3xl font-bold mb-2 dark:text-gray-200">{plant.name}</h2>
+              <p className="text-gray-600 italic dark:text-gray-200">{plant.description}</p>
             </div>
             <div className="border-b-2 border-gray-600"></div>
             <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
-              <p>
+              <p className="dark:text-gray-200">
                 <strong>Category:</strong> {plant.category}
               </p>
-              <p>
+              <p className="dark:text-gray-200">
                 <strong>Care Level:</strong> {plant.careLevel}
               </p>
-              <p>
+              <p className="dark:text-gray-200">
                 <strong>Health Status:</strong> {plant.healthStatus}
               </p>
-              <p>
+              <p className="dark:text-gray-200">
                 <strong>Watering:</strong> {plant.wateringFrequency}
               </p>
-              <p>
+              <p className="dark:text-gray-200">
                 <strong>Last Watered:</strong> {plant.lastWateredDate}
               </p>
-              <p>
+              <p className="dark:text-gray-200">
                 <strong>Next Watering:</strong> {plant.nextWateredDate}
               </p>
-              <p className="text-lg items-center">
+              <p className="text-lg items-center dark:text-gray-200">
                 <strong>Added by:</strong> {plant.userName}
               </p>
             </div>

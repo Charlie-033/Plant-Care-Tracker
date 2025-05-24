@@ -18,7 +18,7 @@ const PlantCard2 = ({ plant }) => {
   return (
     <div
       key={_id}
-      className="relative bg-white rounded-xl shadow-md overflow-hidden border border-green-100 hover:shadow-lg transition-shadow duration-300 max-w-sm mx-auto"
+      className="relative bg-white rounded-xl shadow-md overflow-hidden border border-green-100 hover:shadow-lg transition-shadow duration-300 max-w-sm mx-auto dark:bg-gray-600"
     >
       <div className="h-48 bg-green-50 flex items-center justify-center overflow-hidden">
         <img src={photo} alt={name} className="w-full h-full object-cover" />
@@ -39,11 +39,11 @@ const PlantCard2 = ({ plant }) => {
           {category}
         </span>
 
-        <h3 className="text-xl font-bold text-gray-800 mb-1">{name}</h3>
+        <h3 className="text-xl font-bold text-gray-800 mb-1 dark:text-gray-300">{name}</h3>
 
-        <p className="text-gray-600 mb-3 line-clamp-2">{description}</p>
+        <p className="text-gray-600 mb-3 line-clamp-2 dark:text-gray-400">{description}</p>
 
-        <div className="grid grid-cols-2 gap-2 text-sm mb-4">
+        <div className="grid grid-cols-2 gap-2 text-sm mb-4 dark:text-gray-300">
           <div className="flex items-center">
             <span className="text-gray-500 mr-1">💧</span>
             <span>{wateringFrequency}</span>
@@ -57,7 +57,7 @@ const PlantCard2 = ({ plant }) => {
         <div className="flex justify-between mt-4">
           <button
             onClick={() => handleNavigate(plant._id)}
-            className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors"
+            className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-600 py-2 px-4 rounded-lg text-sm font-medium transition-colors darkL:bg-gray-700"
           >
             View Details
           </button>

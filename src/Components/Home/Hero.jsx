@@ -32,7 +32,7 @@ const Hero = () => {
   }, [images.length]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center justify-between bg-linear-to-r from-green-300 to-orange-200  px-3 md:px-8 lg:px-16 py-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center justify-between bg-linear-to-r from-green-300 to-orange-200  px-3 md:px-8 lg:px-16 py-5 dark:bg-linear-to-r dark:from-gray-800 dark:to-gray-900">
       <div className="overflow-hidden w-full flex justify-center items-center">
         <div
           className="flex transition-transform duration-500"
@@ -65,10 +65,10 @@ const Hero = () => {
         </div>
       </div>
       <div className="md:ml-6 lg:ml-16 space-y-5">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-green-900">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-green-900 dark:text-gray-300">
           Smart Tracking for Healthy Plants.
         </h1>
-        <p className="text-lg font-semibold text-gray-600">
+        <p className="text-lg font-semibold text-gray-600 dark:text-gray-400">
           Whether you're a seasoned plant lover or just starting out, PlantLab
           helps you keep your green friends happy and healthy with gentle
           reminders and easy logging.

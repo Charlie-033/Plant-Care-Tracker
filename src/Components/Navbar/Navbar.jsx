@@ -39,7 +39,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow dark:bg-gray-900 text-white"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow dark:bg-gray-900 dark:text-white"
           >
             <li>
               <NavLink to="/">Home</NavLink>
@@ -74,7 +74,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) =>
-                `btn font-bold ${
+                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
                   isActive
                     ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
                     : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
@@ -88,7 +88,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) =>
-                `btn font-bold ${
+                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
                   isActive
                     ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
                     : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
@@ -102,7 +102,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) =>
-                `btn font-bold ${
+                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
                   isActive
                     ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
                     : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
@@ -116,7 +116,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) =>
-                `btn font-bold ${
+                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
                   isActive
                     ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
                     : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
@@ -154,7 +154,7 @@ const Navbar = () => {
             <Link to="/auth/login">
               <button
                 onClick={handleLogOut}
-                className="btn-sm btn btn-outline btn-success text-green-800 font-bold rounded-full"
+                className="border p-1 rounded-3xl btn-success btn-outline text-green-800 font-bold btn-xs md:btn md:rounded-3xl"
               >
                 LogOut
               </button>
@@ -163,12 +163,12 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="/auth/login">
-              <button className="btn-sm btn btn-outline btn-success text-green-800 font-bold rounded-full">
+              <button className="border p-1 rounded-3xl btn-success btn-outline text-green-800 font-bold btn-xs md:btn md:rounded-3xl">
                 Login
               </button>
             </Link>
             <Link to="/auth/register">
-              <button className="btn-sm btn btn-outline btn-success text-green-800 font-bold rounded-full">
+              <button className="border p-1 rounded-3xl btn-success btn-outline text-green-800 font-bold btn-xs md:btn md:rounded-3xl">
                 Register
               </button>
             </Link>

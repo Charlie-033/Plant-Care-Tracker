@@ -2,7 +2,7 @@ import React from "react";
 
 const BeginnerPlant = () => {
   return (
-    <div className="max-w-7xl bg-green-50 p-2 rounded mx-auto shadow-xs my-10">
+    <div className="max-w-7xl bg-green-50 p-2 rounded mx-auto shadow-xs my-10 dark:bg-gray-800">
       <div className="py-10 mx-auto lg:flex gap-4 px-5 justify-between ">
         <div className="lg:order-1 lg:w-1/2">
           <img
@@ -16,7 +16,7 @@ const BeginnerPlant = () => {
           <h1 className="text-3xl font-semibold italic text-green-400">
             Beginner Friendly Plants
           </h1>
-          <p className="text-gray-600 text-md mt-4">
+          <p className="text-gray-600 text-md mt-4 dark:text-gray-200">
             Embarking on your plant parenthood journey can feel overwhelming
             with so many varieties to choose from - but fear not! Nature has
             graciously provided us with wonderfully resilient plants that
@@ -43,15 +43,15 @@ const BeginnerPlant = () => {
           <h3 className="text-xl font-semibold italic text-green-400">
            1. Snake Plant (Sansevieria) – The Unkillable Wonder
           </h3>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-200">
             <strong>🌱 Why they're great for beginners:</strong>
           </p>
           <ul className="list-disc pl-5">
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">
               Thrives on neglect—water only when soil is completely dry.
             </li>
-            <li className="text-gray-700">Tolerates low light but grows faster in bright, indirect light.</li>
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">Tolerates low light but grows faster in bright, indirect light.</li>
+            <li className="text-gray-700 dark:text-gray-200">
               Purifies indoor air by removing toxins.
             </li>
           </ul>
@@ -61,15 +61,15 @@ const BeginnerPlant = () => {
           <h3 className="text-xl font-semibold italic text-green-400">
             2. ZZ Plant (Zamioculcas zamiifolia) – The Survivor
           </h3>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-200">
             <strong>🌱 Why they're great for beginners:</strong>
           </p>
           <ul className="list-disc pl-5">
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">
               Drought-resistant—stores water in its rhizomes.
             </li>
-            <li className="text-gray-700">Grows well in low to moderate light.</li>
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">Grows well in low to moderate light.</li>
+            <li className="text-gray-700 dark:text-gray-200">
               Rarely bothered by pests.
             </li>
           </ul>
@@ -79,15 +79,15 @@ const BeginnerPlant = () => {
           <h3 className="text-xl font-semibold italic text-green-400">
             3. Pothos (Epipremnum aureum) – The Fast Grower
           </h3>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-200">
             <strong>🌱 Why they're great for beginners:</strong>
           </p>
           <ul className="list-disc pl-5">
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">
               Adapts to low or bright indirect light.
             </li>
-            <li className="text-gray-700">Tells you when it’s thirsty (leaves droop slightly).</li>
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">Tells you when it’s thirsty (leaves droop slightly).</li>
+            <li className="text-gray-700 dark:text-gray-200">
               Easy to propagate—snip a stem and grow in water or soil.
             </li>
           </ul>
@@ -97,15 +97,15 @@ const BeginnerPlant = () => {
           <h3 className="text-xl font-semibold italic text-green-400">
             4. Spider Plant (Chlorophytum comosum) – The Prolific Pup-Producer
           </h3>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-200">
             <strong>🌱 Why they're great for beginners:</strong>
           </p>
           <ul className="list-disc pl-5">
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">
               Loves bright, indirect light but tolerates shade.
             </li>
-            <li className="text-gray-700">Produces "babies" (spiderettes) you can repot or share.</li>
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">Produces "babies" (spiderettes) you can repot or share.</li>
+            <li className="text-gray-700 dark:text-gray-200">
               Safe for pets (non-toxic).
             </li>
           </ul>
@@ -115,15 +115,15 @@ const BeginnerPlant = () => {
           <h3 className="text-xl font-semibold italic text-green-400">
             5. Peace Lily (Spathiphyllum) – The Drama Queen
           </h3>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-200">
             <strong>🌱 Why they're great for beginners:</strong>
           </p>
           <ul className="list-disc pl-5">
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">
               Dramatically wilts when thirsty, then perks up after watering.
             </li>
-            <li className="text-gray-700">Blooms elegant white flowers in medium light.</li>
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">Blooms elegant white flowers in medium light.</li>
+            <li className="text-gray-700 dark:text-gray-200">
               Purifies indoor air effectively.
             </li>
           </ul>
@@ -133,15 +133,15 @@ const BeginnerPlant = () => {
           <h3 className="text-xl font-semibold italic text-green-400">
             6. Succulents (e.g., Aloe Vera, Jade Plant) – The Low-Maintenance Squad
           </h3>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-200">
             <strong>🌱 Why they're great for beginners:</strong>
           </p>
           <ul className="list-disc pl-5">
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">
               Store water in leaves—water only every 2-3 weeks.
             </li>
-            <li className="text-gray-700">Love bright light (south-facing windows are ideal).</li>
-            <li className="text-gray-700">
+            <li className="text-gray-700 dark:text-gray-200">Love bright light (south-facing windows are ideal).</li>
+            <li className="text-gray-700 dark:text-gray-200">
               Compact and stylish for desks or shelves.
             </li>
           </ul>

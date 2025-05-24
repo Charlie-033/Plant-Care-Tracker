@@ -3,7 +3,7 @@ import { Tooltip } from "react-tooltip";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center bg-green-900 text-primary-content pb-7">
+    <footer className="footer footer-horizontal footer-center bg-green-900 text-primary-content pb-7 dark:bg-gray-800 dark:text-white">
       <aside>
         <img
           src="https://i.ibb.co/xtT2vBWq/logo-removebg-preview.png"
