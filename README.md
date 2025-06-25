@@ -29,8 +29,7 @@ The **Plant Care Tracker** is a full-stack, mobile-responsive web app for plant 
 
 ## 📁 Repositories
 
-- **Client:** (https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-Charlie-033)
-- **Server:** (https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-Charlie-033)
+- **Server:** (https://github.com/Charlie-033/Plant-Care-Tracker-S)
 
 
 
