@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import AuthContext from "../../Provider/AuthContext";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
