@@ -31,5 +31,19 @@ The **Plant Care Tracker** is a full-stack, mobile-responsive web app for plant 
 
 - **Server:** (https://github.com/Charlie-033/Plant-Care-Tracker-S)
 
+---
 
+## 🚀 Run Locally
+
+To run this project on your local machine, follow these steps:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Charlie-033/Plant-Care-Tracker.git
+cd your-repo-name
+
+npm install
+
+npm run dev
 
