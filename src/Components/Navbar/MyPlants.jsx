@@ -15,7 +15,7 @@ const MyPlants = () => {
     // Fetch plants data from the server
     const fetchPlants = async () => {
       const response = await fetch(
-        `https://plant-care-tracker-server-nine.vercel.app/plants/user/${encodeURIComponent(email)}`
+        `https://plant-care-tracker-s.vercel.app/plants/user/${encodeURIComponent(email)}`
       );
       const data = await response.json();
       // console.log(data);

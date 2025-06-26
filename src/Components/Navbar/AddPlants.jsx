@@ -19,7 +19,7 @@ const AddPlants = () => {
     // console.log(newPlant);
 
     // Send New Plant Data to server
-    fetch("https://plant-care-tracker-server-nine.vercel.app/plants", {
+    fetch("https://plant-care-tracker-s.vercel.app/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -6,7 +6,7 @@ import { Tooltip } from "react-tooltip";
 import { useTheme } from "../../Provider/ThemeProvider";
 
 const Navbar = () => {
-  const {isDark, setIsDark} = useTheme();
+  const { isDark, setIsDark } = useTheme();
   const { user, logOut } = useContext(AuthContext);
   // console.log(user);
   // console.log(user?.photoURL);
@@ -19,8 +19,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-yellow-100 px-3 md:px-8 lg:px-16 dark:bg-gray-900">
-      <div className="navbar-start">
+    <div className="navbar bg-base-100 px-3 md:px-8 lg:px-16 dark:bg-gray-900 ">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -62,81 +62,74 @@ const Navbar = () => {
             data-tooltip-content="PlantLab"
             src="https://i.ibb.co/xtT2vBWq/logo-removebg-preview.png"
             alt=""
-            className="w-7 md:w-10 lg:w-15 hidden md:block bg-yellow-100 dark:bg-gray-900 rounded-full"
+            className="w-7 md:w-10 lg:w-15 hidden md:block  dark:bg-gray-900 rounded-full"
           />
 
-          <a className="text-2xl lg:text-4xl font-bold text-green-900">
+          <a className="text-2xl lg:text-4xl font-bold text-green-600">
             PlantLab
           </a>
         </div>
       </div>
+      {/* Navbar in large screen */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-5">
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
-                  isActive
-                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
-                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
-                }`
-              }
-              to="/"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
-                  isActive
-                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
-                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
-                }`
-              }
-              to="/allplants"
-            >
-              All Plants
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
-                  isActive
-                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
-                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
-                }`
-              }
-              to="/addplant"
-            >
-              Add Plants
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `btn font-bold rounded-full dark:bg-gray-900 dark:text-gray-200 ${
-                  isActive
-                    ? "bg-yellow-100 text-green-800 rounded-full border-green-500 border-2"
-                    : "bg-yellow-100 border-none hover:bg-yello-100 text-green-800"
-                }`
-              }
-              to="/myplants"
-            >
-              My Plants
-            </NavLink>
-          </li>
+        <ul className="menu menu-horizontal px-1 space-x-3">
+          {[
+            { to: "/", label: "Home" },
+            { to: "/allplants", label: "All Plants" },
+            { to: "/about-us", label: "About Us"},
+            { to: "/blog", label: "Blog"},
+            { to: '/support', label: "Support"}
+          ].map(({ to, label }) => (
+            <li key={to}>
+              <NavLink
+                to={to}
+                className={({ isActive }) =>
+                  `px-4 py-2 font-semibold rounded-md transition-colors duration-300 ${
+                    isActive
+                      ? "bg-green-600 text-white border border-green-700 shadow-md"
+                      : "bg-base-100 text-gray-800 hover:bg-green-100 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-green-700"
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            </li>
+            
+          ))}
+           {user?.email && [
+            { to: "/addplant", label: "Add Plants" },
+            { to: "/myplants", label: "My Plants" },
+          ].map(({ to, label }) => (
+            <li key={to}>
+              <NavLink
+                to={to}
+                className={({ isActive }) =>
+                  `px-4 py-2 font-semibold rounded-md transition-colors duration-300 ${
+                    isActive
+                      ? "bg-green-600 text-white border border-green-700 shadow-md"
+                      : "bg-base-100 text-gray-800 hover:bg-green-100 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-green-700"
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            </li>
+            
+          ))}
         </ul>
       </div>
+
       <div className="navbar-end flex items-center gap-3">
         <button
-          className="p-1 rounded-3xl bg-yellow-100 font-bold md:border-2 text-xs dark:text-white dark:bg-gray-900 dark:border-white"
           onClick={() => setIsDark(!isDark)}
+          className="flex items-center gap-2 px-1.5 py-1.5 text-sm font-semibold rounded-full transition-colors duration-300 
+             bg-gray-100 text-gray-800 border border-gray-300 
+             hover:bg-gray-200 
+             dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
         >
-          {isDark ? "☀️Light" : "🌙Dark"}
+          {isDark ? "☀️" : "🌙"}
         </button>
+
         <span
           data-tooltip-id="user-tooltip"
           className="cursor-pointer"
@@ -151,29 +144,20 @@ const Navbar = () => {
           <Tooltip id="user-tooltip" place="bottom" />
         </span>
         {user ? (
-          <>
-            <Link to="/auth/login">
-              <button
-                onClick={handleLogOut}
-                className="border p-1 rounded-3xl btn-success btn-outline text-green-800 font-bold btn-xs md:btn md:rounded-3xl"
-              >
-                LogOut
-              </button>
-            </Link>
-          </>
+          <button
+            onClick={handleLogOut}
+            className="px-4 py-1.5 rounded-full border border-green-600 text-gray-800 font-semibold text-sm hover:bg-green-100 transition-colors duration-300 dark:border-green-400 dark:text-green-200 dark:hover:bg-green-800"
+          >
+            Log Out
+          </button>
         ) : (
-          <>
+          <div className="flex items-center gap-2">
             <Link to="/auth/login">
-              <button className="border p-1 rounded-3xl btn-success btn-outline text-green-800 font-bold btn-xs md:btn md:rounded-3xl">
+              <button className="px-4 py-1.5 rounded-full border border-green-600 text-gray-800 font-semibold text-sm hover:bg-green-100 transition-colors duration-300 dark:border-green-400 dark:text-green-200 dark:hover:bg-green-800">
                 Login
               </button>
             </Link>
-            <Link to="/auth/register">
-              <button className="border p-1 rounded-3xl btn-success btn-outline text-green-800 font-bold btn-xs md:btn md:rounded-3xl">
-                Register
-              </button>
-            </Link>
-          </>
+          </div>
         )}
       </div>
     </div>

@@ -31,10 +31,10 @@ const Hero = () => {
   }, [images.length]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center justify-between bg-linear-to-r from-green-300 to-orange-200  px-3 md:px-8 lg:px-16 py-5 dark:bg-linear-to-r dark:from-gray-800 dark:to-gray-900">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center justify-between bg-linear-to-r from-green-200 to-slate-100  px-3 md:px-8 lg:px-16 py-5 dark:bg-linear-to-r dark:from-gray-800 dark:to-gray-900">
       <div className="overflow-hidden w-full flex justify-center items-center">
         <div
-          className="flex transition-transform duration-500"
+          className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((slide, i) => (
@@ -45,8 +45,8 @@ const Hero = () => {
               <img
                 src={slide.src}
                 alt=""
-                className={`transition-transform transform rounded-tl-4xl rounded-br-4xl object-cover  ${
-                  i === currentIndex ? "scale-100" : "scale-65 opacity-70"
+                className={`transition-transform ease-in-out transform rounded-tl-4xl rounded-br-4xl object-cover  ${
+                  i === currentIndex ? "scale-100 opacity-100" : "scale-90 opacity-60"
                 }`}
               />
               {i === currentIndex && (
@@ -67,15 +67,12 @@ const Hero = () => {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-green-900 dark:text-gray-300">
           Smart Tracking for Healthy Plants.
         </h1>
-        <p className="text-lg font-semibold text-gray-600 dark:text-gray-400">
+        <p className="text-lg text-gray-600 dark:text-gray-400">
           Whether you're a seasoned plant lover or just starting out, PlantLab
           helps you keep your green friends happy and healthy with gentle
           reminders and easy logging.
         </p>
         <div className="lg:flex gap-24">
-          <button className="btn bg-orange-600 text-white rounded-full">
-            Get Started
-          </button>
           <div className="join rounded full">
             <div>
               <label className="input border-none join-item rounded-full">

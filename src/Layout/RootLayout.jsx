@@ -10,7 +10,7 @@ const RootLayout = () => {
         <div className=' min-h-screen flex flex-col'>
             <ToastContainer/>
             <ScrolltoTop/>
-            <header>
+            <header className='sticky top-0 z-50'>
                 <Navbar></Navbar>
             </header>
             <main className='flex-grow dark:bg-gray-900 dark:text-white'>

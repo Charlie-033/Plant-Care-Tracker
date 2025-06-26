@@ -10,6 +10,9 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import PlantDetails from "../Components/Pages/PlantDetails";
 import UpdatePlant from "../Components/Pages/UpdatePlant";
 import Errorpage from "../Components/Pages/Errorpage";
+import AboutUs from "../Components/Pages/AboutUs";
+import Blog from "../Components/Pages/Blog";
+import Support from "../Components/Pages/Support";
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'plants/:id',
-        loader: ({params}) => fetch(`https://plant-care-tracker-server-nine.vercel.app/plants/${params.id}`),
+        loader: ({params}) => fetch(`https://plant-care-tracker-s.vercel.app/plants/${params.id}`),
         element: <PrivateRoute>
             <PlantDetails/>
         </PrivateRoute>
@@ -39,7 +42,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'updateplant/:id',
-        loader: ({params}) => fetch(`https://plant-care-tracker-server-nine.vercel.app/plants/${params.id}`),
+        loader: ({params}) => fetch(`https://plant-care-tracker-s.vercel.app/plants/${params.id}`),
         element: <PrivateRoute>
             <UpdatePlant/>
         </PrivateRoute>
@@ -63,6 +66,18 @@ export const router = createBrowserRouter([
           }
         ],
       },
+      {
+        path: 'about-us',
+        element: <AboutUs/>
+      },
+      {
+        path: 'blog',
+        element: <Blog/>
+      },
+      {
+        path: 'support',
+        element: <Support/>
+      }
     ],
   },
   {

@@ -7,7 +7,7 @@ const NewPlants = () => {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://plant-care-tracker-server-nine.vercel.app/plants/recent")
+    fetch("https://plant-care-tracker-s.vercel.app/plants/recent")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -23,7 +23,7 @@ const NewPlants = () => {
         Most Recent Plants
       </h2>
       {plants.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
           {plants.map((plant) => (
             <PlantCard2
               key={plant._id}

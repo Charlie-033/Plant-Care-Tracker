@@ -1,26 +1,76 @@
 import React from "react";
+const mistakeList = [
+  {
+    title: "Overwatering",
+    problem:
+      "Many plant owners believe more water equals healthier plants, but overwatering is the #1 cause of root rot and fungal diseases.",
+    signs: "Yellowing leaves, mushy stems, moldy soil.",
+    fix: [
+      "Check soil moisture before watering (stick your finger 1–2 inches deep).",
+      "Ensure pots have drainage holes.",
+      "Adjust watering based on season (plants need less in winter).",
+    ],
+  },
+  {
+    title: "Incorrect Light Conditions",
+    problem:
+      "Placing a shade-loving plant in direct sunlight (or vice versa) stresses the plant.",
+    signs: "Scorched leaves, leggy growth, slow development.",
+    fix: [
+      "Research your plant’s light needs (low, medium, or bright indirect).",
+      "Rotate plants periodically for even growth.",
+      "Use grow lights for low-light environments.",
+    ],
+  },
+  {
+    title: "Poor Soil Quality",
+    problem:
+      "Using the wrong soil type leads to drainage issues or nutrient deficiencies.",
+    signs: "Slow growth, waterlogged soil, pests.",
+    fix: [
+      "Use well-draining potting mix for succulents and cacti.",
+      "Add perlite or compost for better aeration.",
+      "Repot every 1–2 years to refresh soil.",
+    ],
+  },
+  {
+    title: "Ignoring Humidity Needs",
+    problem:
+      "Tropical plants suffer in dry air, while desert plants rot in high humidity.",
+    signs: "Brown leaf tips, wilting, mold.",
+    fix: [
+      "Group humidity-loving plants together.",
+      "Use a pebble tray or humidifier.",
+      "Ensure airflow for succulents and aroids.",
+    ],
+  },
+  {
+    title: "Over-Fertilizing",
+    problem:
+      "Excess fertilizer burns roots and harms soil microbes.",
+    signs: "Yellow/brown leaf edges, crusty soil surface.",
+    fix: [
+      "Fertilize only during growing season (spring/summer).",
+      "Dilute liquid fertilizer to half strength.",
+      "Flush soil occasionally to prevent salt buildup.",
+    ],
+  },
+];
 
 const Mistakes = () => {
   return (
-    <div className="max-w-7xl bg-red-50 p-2 rounded mx-auto shadow-sm my-10 dark:bg-gray-800">
-      <div className="py-10 mx-auto lg:flex gap-4 px-5 justify-between ">
-        <div className="lg:order-2 lg:w-1/2">
-          <img
-            src="https://i.ibb.co/C3Jt2zs7/plant-care-mistake-banner.jpg"
-            alt=""
-            className="rounded-lg"
-          />
-        </div>
-        <div className="lg:order-1 lg:w-1/2">
-          <h1 className="text-3xl font-semibold italic text-red-400">
-            Top Plant Care Mistakes
-          </h1>
-          <p className="text-gray-600 text-md mt-4 dark:text-gray-200">
-            Caring for plants is one of life’s most fulfilling hobbies—watching
+    <div className="py-10 max-w-7xl mx-auto">
+      <h2 className="text-3xl md:text-4xl text-center text-green-700 font-bold italic pt-5">
+        Top Plant Care Mistakes
+      </h2>
+      <div className="max-w-7xl mx-auto my-12 p-4 md:p-8 bg-red-50 dark:bg-gray-800 rounded-lg shadow-md">
+      <div className="flex flex-col lg:flex-row gap-8 items-center">
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2 order-2 lg:order-1">
+          <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed">
+             Caring for plants is one of life’s most fulfilling hobbies—watching
             a tiny seedling grow into a thriving, leafy beauty brings joy and a
-            sense of accomplishment. However, even the most experienced
-            gardeners occasionally stumble, making mistakes that can stress,
-            damage, or even kill their beloved plants. The key to successful
+            sense of accomplishment. The key to successful
             plant care lies not just in knowing what to do, but also in
             recognizing and avoiding common pitfalls. Many plant problems stem
             from simple, correctable errors—overzealous watering, insufficient
@@ -37,130 +87,45 @@ const Mistakes = () => {
             thrive under your care! 🌱💚
           </p>
         </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 space-y-5 pb-5">
-        <div className="space-y-3 ">
-          <h3 className="text-xl font-semibold italic text-red-400 ">
-            1. Overwatering
-          </h3>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Problem:</strong>Many plant owners believe more water equals
-            healthier plants, but overwatering is the #1 cause of root rot and
-            fungal diseases.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Signs:</strong>Yellowing leaves, mushy stems, moldy soil.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Fix:</strong>
-          </p>
-          <ul className="list-disc pl-5">
-            <li className="text-gray-700 dark:text-gray-200">
-              Check soil moisture before watering (stick your finger 1-2 inches
-              deep).
-            </li>
-            <li className="text-gray-700 dark:text-gray-200">Ensure pots have drainage holes.</li>
-            <li className="text-gray-700 dark:text-gray-200">
-              Adjust watering based on season (plants need less in winter).
-            </li>
-          </ul>
-        </div>
-        <div className="space-y-3">
-          <h3 className="text-xl font-semibold italic text-red-400">
-            2. Incorrect Light Conditions
-          </h3>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Problem:</strong>Placing a shade-loving plant in direct
-            sunlight (or vice versa) stresses the plant. Signs: Scorched leaves
-            (too much light), leggy growth (too little light).
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Signs:</strong>Roots growing out of drainage holes, slow growth.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Fix:</strong>
-          </p>
-          <ul className="list-disc pl-5">
-            <li className="text-gray-700 dark:text-gray-200">
-              Research your plant’s light needs (low, medium, or bright indirect light).
-            </li>
-            <li className="text-gray-700 dark:text-gray-200">Rotate plants periodically for even growth..</li>
-            <li className="text-gray-700 dark:text-gray-200">
-              Use grow lights for low-light areas.
-            </li>
-          </ul>
-        </div>
-        <div className="space-y-3">
-          <h3 className="text-xl font-semibold italic text-red-400">
-            3. Poor Soil Quality
-          </h3>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Problem:</strong>Using the wrong soil type leads to drainage issues or nutrient deficiencies.
- 
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Signs:</strong>Slow growth, waterlogged soil, pests.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Fix:</strong>
-          </p>
-          <ul className="list-disc pl-5">
-            <li className="text-gray-700 dark:text-gray-200">
-              Use well-draining potting mix for succulents/cacti.
-            </li>
-            <li className="text-gray-700 dark:text-gray-200">Add perlite or compost for better aeration.</li>
-            <li className="text-gray-700 dark:text-gray-200">
-              Repot every 1-2 years to refresh soil.
-            </li>
-          </ul>
-        </div>
-        <div className="space-y-3">
-          <h3 className="text-xl font-semibold italic text-red-400">
-            4. Ignoring Humidity Needs
-          </h3>
-          <p className="text-gray-700 dark:text-gray-200 ">
-            <strong>Problem:</strong>Tropical plants suffer in dry indoor air, while desert plants rot in high humidity.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Signs:</strong> Brown leaf tips, wilting, mold.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Fix:</strong>
-          </p>
-          <ul className="list-disc pl-5">
-            <li className="text-gray-700 dark:text-gray-200">
-              Group humidity-loving plants together.
-            </li>
-            <li className="text-gray-700 dark:text-gray-200">Use a pebble tray or humidifier.</li>
-            <li className="text-gray-700 dark:text-gray-200">
-              Ensure good airflow for succulents/aroids.
-            </li>
-          </ul>
-        </div>
-        <div className="space-y-3">
-          <h3 className="text-xl font-semibold italic text-red-400">
-           5. Over-Fertilizing
-          </h3>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Problem:</strong>Excess fertilizer burns roots and harms soil microbes.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Signs:</strong>Yellow/brown leaf edges, crusty soil surface.
-          </p>
-          <p className="text-gray-700 dark:text-gray-200">
-            <strong>Fix:</strong>
-          </p>
-          <ul className="list-disc pl-5">
-            <li className="text-gray-700 dark:text-gray-200">
-              Fertilize only during growing season (spring/summer).
-            </li>
-            <li className="text-gray-700 dark:text-gray-200">Dilute liquid fertilizer to half strength.</li>
-            <li className="text-gray-700 dark:text-gray-200">
-              Flush soil occasionally to prevent salt buildup.
-            </li>
-          </ul>
+
+        {/* Banner Image */}
+        <div className="w-full lg:w-1/2 order-1 lg:order-2">
+          <img
+            src="https://i.ibb.co/C3Jt2zs7/plant-care-mistake-banner.jpg"
+            alt="Top Plant Care Mistakes"
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
         </div>
       </div>
+
+      {/* Mistakes List Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+        {mistakeList.map((mistake, index) => (
+          <div
+            key={index}
+            className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm space-y-3"
+          >
+            <h3 className="text-xl font-semibold italic text-red-500">
+              {index + 1}. {mistake.title}
+            </h3>
+            <p className="text-gray-700 dark:text-gray-200">
+              <strong>Problem:</strong> {mistake.problem}
+            </p>
+            <p className="text-gray-700 dark:text-gray-200">
+              <strong>Signs:</strong> {mistake.signs}
+            </p>
+            <p className="text-gray-700 dark:text-gray-200">
+              <strong>Fix:</strong>
+            </p>
+            <ul className="list-disc pl-5 text-gray-700 dark:text-gray-200 space-y-1">
+              {mistake.fix.map((tip, i) => (
+                <li key={i}>{tip}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
     </div>
   );
 };
