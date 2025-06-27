@@ -1,13 +1,16 @@
 import React from "react";
 import Hero from "./Hero";
-import DocumentTitle from "../Others/DocumentTitle";
+import useDocumentTitle from "../Others/useDocumentTitle";
 import NewPlants from "./NewPlants";
 import BeginnerPlant from "./BeginnerPlant";
 import Mistakes from "./Mistakes";
 import Welcome from "./Welcome";
+import Testimonials from "../Pages/Testimonials";
+import Features from "./Features";
+import EasyCarePlants from "./EasyCarePlants";
 
 const Home = () => {
-  DocumentTitle("Home");
+  useDocumentTitle("Home");
   return (
     <div>
       <div>
@@ -16,7 +19,10 @@ const Home = () => {
       <div>
         <NewPlants />
         <BeginnerPlant />
+        <EasyCarePlants/>
+        <Testimonials/>
         <Mistakes />
+        <Features/>
         <Welcome />
       </div>
     </div>

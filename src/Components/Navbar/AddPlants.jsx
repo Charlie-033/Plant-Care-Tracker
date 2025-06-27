@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../../Provider/AuthContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-import DocumentTitle from "../Others/DocumentTitle";
+import useDocumentTitle from "../Others/useDocumentTitle";
 
 const AddPlants = () => {
   const { user } = useContext(AuthContext);
@@ -31,11 +31,11 @@ const AddPlants = () => {
         if (data.insertedId) {
           toast.success("Plant Added Successfully");
           // console.log(data);
-          navigate("/myplants");
+          navigate("/dashboard/myplants");
         }
       });
   };
-  DocumentTitle("Add Plant");
+  useDocumentTitle("Add Plant");
   return (
     <div className="space-y-5 px-2 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-green-50 to-teal-50 rounded-lg shadow-sm dark:bg-liner-gradient-to-b dark:from-gray-800 dark:to-gray-900">
       <div className="">

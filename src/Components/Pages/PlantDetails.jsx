@@ -1,60 +1,70 @@
 import React from "react";
 import { useLoaderData } from "react-router";
-import DocumentTitle from "../Others/DocumentTitle";
+import useDocumentTitle from "../Others/useDocumentTitle";
 
 const PlantDetails = () => {
   const plant = useLoaderData();
-  // console.log(plant);
-  DocumentTitle("Plant Details");
-  return (
-    <div className="max-w-5xl mx-auto px-6 py-12 ">
-      <div
-        className="shadow-lg rounded-2xl overflow-hidden p-2 bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200 dark:bg-linear-to-r dark:from-slate-600 dark:to-slate-700"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-          <div className="h-80 flex items-center justify-center overflow-hidden">
-            <img
-              src={plant.photo}
-              alt={plant.name}
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </div>
+  useDocumentTitle("Plant Details");
 
-          <div className="p-6 flex flex-col justify-between gap-4">
-            <div>
-              <h2 className="text-3xl font-bold mb-2 dark:text-gray-200">
-                {plant.name}
-              </h2>
-              <p className="text-gray-600 italic dark:text-gray-200">
-                {plant.description}
-              </p>
-            </div>
-            <div className="border-b-2 border-gray-600"></div>
-            <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
-              <p className="dark:text-gray-200">
-                <strong>Category:</strong> {plant.category}
-              </p>
-              <p className="dark:text-gray-200">
-                <strong>Care Level:</strong> {plant.careLevel}
-              </p>
-              <p className="dark:text-gray-200">
-                <strong>Health Status:</strong> {plant.healthStatus}
-              </p>
-              <p className="dark:text-gray-200">
-                <strong>Watering:</strong> {plant.wateringFrequency}
-              </p>
-              <p className="dark:text-gray-200">
-                <strong>Last Watered:</strong> {plant.lastWateredDate}
-              </p>
-              <p className="dark:text-gray-200">
-                <strong>Next Watering:</strong> {plant.nextWateredDate}
-              </p>
-              <p className="text-lg items-center dark:text-gray-200">
-                <strong>Added by:</strong> {plant.userName}
-              </p>
-            </div>
-          </div>
+  return (
+    <div className="max-w-6xl mx-auto px-6 py-12 text-gray-800 dark:text-gray-100">
+      {/* Title Section */}
+      <div className="mb-10">
+        <h1 className="text-4xl font-bold text-green-700 dark:text-green-400 mb-3">
+          {plant.name}
+        </h1>
+        <p className="text-lg italic text-gray-600 dark:text-gray-300">
+          {plant.description}
+        </p>
+      </div>
+
+      {/* Image Section */}
+      <div className="mb-12">
+        <img
+          src={plant.photo}
+          alt={plant.name}
+          className="w-full h-[400px] object-cover rounded-xl shadow-md"
+        />
+      </div>
+
+      {/* Info Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-base">
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Plant Information</h3>
+          <ul className="space-y-2">
+            <li>
+              <strong>Category:</strong> {plant.category}
+            </li>
+            <li>
+              <strong>Care Level:</strong> {plant.careLevel}
+            </li>
+            <li>
+              <strong>Health Status:</strong> {plant.healthStatus}
+            </li>
+          </ul>
         </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Watering Schedule</h3>
+          <ul className="space-y-2">
+            <li>
+              <strong>Watering Frequency:</strong> {plant.wateringFrequency}
+            </li>
+            <li>
+              <strong>Last Watered:</strong> {plant.lastWateredDate}
+            </li>
+            <li>
+              <strong>Next Watering:</strong> {plant.nextWateredDate}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Added By */}
+      <div className="mt-12 border-t pt-6 text-lg">
+        <p>
+          <strong>Added by:</strong> {plant.userName}
+        </p>
       </div>
     </div>
   );

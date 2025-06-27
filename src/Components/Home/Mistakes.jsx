@@ -1,4 +1,5 @@
 import React from "react";
+
 const mistakeList = [
   {
     title: "Overwatering",
@@ -59,73 +60,57 @@ const mistakeList = [
 
 const Mistakes = () => {
   return (
-    <div className="py-10 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl text-center text-green-700 font-bold italic pt-5">
+    <div className="py-12 max-w-7xl mx-auto px-4">
+      <h2 className="text-4xl text-center font-bold text-green-700 italic mb-8">
         Top Plant Care Mistakes
       </h2>
-      <div className="max-w-7xl mx-auto my-12 p-4 md:p-8 bg-red-50 dark:bg-gray-800 rounded-lg shadow-md">
-      <div className="flex flex-col lg:flex-row gap-8 items-center">
-        {/* Image Section */}
-        <div className="w-full lg:w-1/2 order-2 lg:order-1">
-          <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed">
-             Caring for plants is one of life’s most fulfilling hobbies—watching
-            a tiny seedling grow into a thriving, leafy beauty brings joy and a
-            sense of accomplishment. The key to successful
-            plant care lies not just in knowing what to do, but also in
-            recognizing and avoiding common pitfalls. Many plant problems stem
-            from simple, correctable errors—overzealous watering, insufficient
-            light, or neglecting a plant’s specific needs. The good news? Once
-            you understand these mistakes, you can quickly adjust your care
-            routine to help your plants recover and flourish. In this guide,
-            we’ll explore the top plant care mistakes that even seasoned plant
-            parents make, how to spot the warning signs, and most
-            importantly—practical, actionable solutions to fix them. Whether
-            you’re a beginner learning the basics or an experienced grower
-            troubleshooting persistent issues, this breakdown will help you
-            cultivate healthier, happier plants. Let’s dive into the most
-            frequent missteps and how to avoid them, ensuring your green friends
-            thrive under your care! 🌱💚
-          </p>
-        </div>
 
-        {/* Banner Image */}
-        <div className="w-full lg:w-1/2 order-1 lg:order-2">
-          <img
-            src="https://i.ibb.co/C3Jt2zs7/plant-care-mistake-banner.jpg"
-            alt="Top Plant Care Mistakes"
-            className="w-full h-auto rounded-lg shadow-lg"
-          />
-        </div>
+      {/* 🌿 Banner Image at the Top */}
+      <div className="mb-10">
+        <img
+          src="https://i.ibb.co/C3Jt2zs7/plant-care-mistake-banner.jpg"
+          alt="Top Plant Care Mistakes"
+          className="w-full h-auto rounded-xl shadow-md"
+        />
       </div>
 
-      {/* Mistakes List Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+      {/* 📝 Intro Paragraph */}
+      <div className="prose prose-lg max-w-none dark:prose-invert mb-12">
+        <p>
+          Caring for plants is one of life’s most fulfilling hobbies—watching a tiny seedling grow into a thriving, leafy beauty brings joy and a sense of accomplishment.
+        </p>
+        <p>
+          The key to successful plant care lies not just in knowing what to do, but also in recognizing and avoiding common pitfalls. Many plant problems stem from simple, correctable errors—overzealous watering, insufficient light, or neglecting a plant’s specific needs.
+        </p>
+        <p>
+          In this guide, we’ll explore the most common plant care mistakes that even seasoned plant parents make, how to identify them, and what to do instead.
+        </p>
+      </div>
+
+      {/* 🔍 Blog Style Mistake Articles */}
+      <div className="space-y-12">
         {mistakeList.map((mistake, index) => (
-          <div
-            key={index}
-            className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm space-y-3"
-          >
-            <h3 className="text-xl font-semibold italic text-red-500">
+          <article key={index} className="border-b pb-8">
+            <h3 className="text-2xl font-bold text-red-600 mb-3">
               {index + 1}. {mistake.title}
             </h3>
-            <p className="text-gray-700 dark:text-gray-200">
+            <p className="text-gray-700 dark:text-gray-300 mb-2">
               <strong>Problem:</strong> {mistake.problem}
             </p>
-            <p className="text-gray-700 dark:text-gray-200">
+            <p className="text-gray-700 dark:text-gray-300 mb-2">
               <strong>Signs:</strong> {mistake.signs}
             </p>
-            <p className="text-gray-700 dark:text-gray-200">
-              <strong>Fix:</strong>
-            </p>
-            <ul className="list-disc pl-5 text-gray-700 dark:text-gray-200 space-y-1">
-              {mistake.fix.map((tip, i) => (
-                <li key={i}>{tip}</li>
-              ))}
-            </ul>
-          </div>
+            <div className="mb-2">
+              <p className="font-semibold text-gray-800 dark:text-gray-200">Fix:</p>
+              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+                {mistake.fix.map((tip, i) => (
+                  <li key={i}>{tip}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
         ))}
       </div>
-    </div>
     </div>
   );
 };

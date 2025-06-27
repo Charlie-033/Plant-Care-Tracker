@@ -1,8 +1,10 @@
 import React from "react";
 import { FaLeaf, FaSeedling, FaWater, FaSun } from "react-icons/fa";
 import { Link } from "react-router";
+import useDocumentTitle from "../Others/useDocumentTitle";
 
 const AboutUs = () => {
+  useDocumentTitle("About Us")
   return (
     <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-green-100 to-green-50 p-8 text-gray-800">
       <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center gap-16">

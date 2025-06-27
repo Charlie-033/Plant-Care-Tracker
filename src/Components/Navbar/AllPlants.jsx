@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../Others/Loader";
 import { Link } from "react-router";
-import DocumentTitle from "../Others/DocumentTitle";
+import useDocumentTitle from "../Others/useDocumentTitle";
 
 const AllPlants = () => {
   // const loader = <Loader/>
@@ -26,9 +26,9 @@ const AllPlants = () => {
       });
   }, [sortBy, loading]);
 
-  DocumentTitle("All Plants");
+  useDocumentTitle("All Plants");
   return (
-    <div className="overflow-x-auto py-10 pl-5">
+    <div className="overflow-x-auto py-5 pl-5">
       <h2 className="text-center text-4xl border-b-2 pb-3 border-gray-600 italic font-bold text-green-700">All Plants</h2>
       <label className="flex items-center gap-3 my-5">
         <span className=" font-semibold">Sort by :</span>

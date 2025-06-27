@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
-import PlantCard2 from "../Navbar/PlantCard2";
-import Loader from "../Others/Loader";
 
-const NewPlants = () => {
+import Loader from "../Others/Loader";
+import PlantCard2 from "../Navbar/PlantCard2";
+
+const EasyCarePlants = () => {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    fetch("https://plant-care-tracker-s.vercel.app/plants/recent")
+    fetch("https://plant-care-tracker-s.vercel.app/easycare-plants")
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         setPlants(data);
         setLoading(false);
-      });
-  }, [loading]);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
   if (loading) return <Loader />;
 
   return (
     <div className="py-16 max-w-7xl mx-auto">
       <h2 className="text-3xl md:text-4xl text-center text-green-700 font-bold italic py-5">
-        Most Recent Plants
+        Easy Care Plants
       </h2>
       {plants.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
@@ -30,17 +33,13 @@ const NewPlants = () => {
               plant={plant}
               plants={plants}
               setPlants={setPlants}
-            ></PlantCard2>
+            />
           ))}
         </div>
       ) : (
         <div className="flex items-center justify-center h-72">
           <h2 className="text-center text-2xl font-bold text-gray-700">
-            No plants found. Please add some plants to your collection.
-            <br />
-            <Link to="/addplant" className="btn btn-sm bg-green-700">
-              Add Plant
-            </Link>
+            No easy care plants found. <br />
           </h2>
         </div>
       )}
@@ -48,4 +47,4 @@ const NewPlants = () => {
   );
 };
 
-export default NewPlants;
+export default EasyCarePlants;

@@ -5,7 +5,7 @@ import AuthContext from "../../Provider/AuthContext";
 import { useLoaderData, useNavigate } from "react-router";
 import { useContext } from "react";
 import Swal from "sweetalert2";
-import DocumentTitle from "../Others/DocumentTitle";
+import useDocumentTitle from "../Others/useDocumentTitle";
 
 const UpdatePlant = () => {
   const { user } = useContext(AuthContext);
@@ -50,12 +50,12 @@ const UpdatePlant = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/myplants");
+          navigate("/dashboard/myplants");
         }
       });
   };
 
-  DocumentTitle("Update Plant");
+  useDocumentTitle("Update Plant");
   return (
     <div className="space-y-5 max-w-6xl mx-auto my-10 py-10 bg-gradient-to-b from-orange-50 to-teal-50 rounded-lg shadow-sm dark:from-gray-800 dark:to-gray-900">
       <div>

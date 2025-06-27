@@ -13,6 +13,9 @@ import Errorpage from "../Components/Pages/Errorpage";
 import AboutUs from "../Components/Pages/AboutUs";
 import Blog from "../Components/Pages/Blog";
 import Support from "../Components/Pages/Support";
+import DashboardLayout from "../Layout/DashboardLayout";
+import DashboardHome from "../Components/Pages/DashboardHome";
+import Plants from "../Components/Pages/Plants";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "allplants",
-        element: <AllPlants />,
+        element: <Plants/>,
       },
       {
         path: 'plants/:id',
@@ -35,22 +38,10 @@ export const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: 'addplant',
-        element: <PrivateRoute>
-            <AddPlants/>
-        </PrivateRoute>
-      },
-      {
         path: 'updateplant/:id',
         loader: ({params}) => fetch(`https://plant-care-tracker-s.vercel.app/plants/${params.id}`),
         element: <PrivateRoute>
             <UpdatePlant/>
-        </PrivateRoute>
-      },
-      {
-        path: 'myplants',
-        element: <PrivateRoute>
-          <MyPlants/>
         </PrivateRoute>
       },
       {
@@ -79,6 +70,32 @@ export const router = createBrowserRouter([
         element: <Support/>
       }
     ],
+  },
+  {
+    path: '/dashboard',
+    element: <PrivateRoute><DashboardLayout/></PrivateRoute>,
+    children: [
+      {
+        index: true,
+        element: <DashboardHome/>
+      },
+      {
+        path: "allplants",
+        element: <AllPlants />
+      },
+      {
+        path: 'addplant',
+        element: <PrivateRoute>
+            <AddPlants/>
+        </PrivateRoute>
+      },
+      {
+        path: 'myplants',
+        element: <PrivateRoute>
+          <MyPlants/>
+        </PrivateRoute>
+      },
+    ]
   },
   {
     path: "*",

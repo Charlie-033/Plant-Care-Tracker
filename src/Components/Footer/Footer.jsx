@@ -19,8 +19,8 @@ const Footer = () => {
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
-          <a data-tooltip-id="twitter-logo" data-tooltip-content="Twitter" data-tooltip-delay-hide={100}>
-            
+          <a data-tooltip-id="twitter-logo" data-tooltip-content="Twitter" data-tooltip-delay-hide={100} href="https://x.com/">
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -32,7 +32,7 @@ const Footer = () => {
             </svg>
             <Tooltip id="twitter-logo" place="top"/>
           </a>
-          <a data-tooltip-id="yt-logo" data-tooltip-content="YouTube" data-tooltip-delay-hide={100}>
+          <a data-tooltip-id="yt-logo" data-tooltip-content="YouTube" data-tooltip-delay-hide={100} href="https://www.youtube.com/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -44,7 +44,7 @@ const Footer = () => {
             </svg>
             <Tooltip id="yt-logo" place="top"/>
           </a>
-          <a data-tooltip-id="fb-logo" data-tooltip-content="Facebook" data-tooltip-delay-hide={100}>
+          <a data-tooltip-id="fb-logo" data-tooltip-content="Facebook" data-tooltip-delay-hide={100} href="https://www.facebook.com/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

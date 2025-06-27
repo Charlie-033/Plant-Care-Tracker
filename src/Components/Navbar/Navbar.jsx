@@ -48,11 +48,17 @@ const Navbar = () => {
             <li>
               <NavLink to="/allplants">All Plants</NavLink>
             </li>
+            {user?.email && <li>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+            </li>}
             <li>
-              <NavLink to="/addplant">Add Plants</NavLink>
+              <NavLink to="/about-us">About Us</NavLink>
             </li>
             <li>
-              <NavLink to="/myplants">My Plants</NavLink>
+              <NavLink to="/blog">Blog</NavLink>
+            </li>
+            <li>
+              <NavLink to="/support">Support</NavLink>
             </li>
           </ul>
         </div>
@@ -65,9 +71,9 @@ const Navbar = () => {
             className="w-7 md:w-10 lg:w-15 hidden md:block  dark:bg-gray-900 rounded-full"
           />
 
-          <a className="text-2xl lg:text-4xl font-bold text-green-600">
+          <Link to="/" className="text-2xl lg:text-4xl font-bold text-green-600">
             PlantLab
-          </a>
+          </Link>
         </div>
       </div>
       {/* Navbar in large screen */}
@@ -97,8 +103,7 @@ const Navbar = () => {
             
           ))}
            {user?.email && [
-            { to: "/addplant", label: "Add Plants" },
-            { to: "/myplants", label: "My Plants" },
+            { to: '/dashboard', label: "Dashboard"}
           ].map(({ to, label }) => (
             <li key={to}>
               <NavLink

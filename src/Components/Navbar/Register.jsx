@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import AuthContext from "../../Provider/AuthContext";
-import DocumentTitle from "../Others/DocumentTitle";
+import useDocumentTitle from "../Others/useDocumentTitle";
 import { toast } from "react-toastify";
 
 const Register = () => {
@@ -83,7 +83,7 @@ const Register = () => {
         setError(error.message);
       });
   };
-  DocumentTitle("Register");
+  useDocumentTitle("Register");
   return (
     <div className="flex justify-center items-center py-10">
       <div className="card bg-base-100 w-full max-w-lg items-center shrink-0 shadow-xl dark:bg-gray-500">

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { FaRegCalendarAlt, FaUserAlt, FaLeaf } from "react-icons/fa";
+import useDocumentTitle from "../Others/useDocumentTitle";
 
 const blogPosts = [
   {
@@ -50,6 +51,7 @@ const blogPosts = [
 ];
 
 const Blog = () => {
+  useDocumentTitle("Blog")
   return (
     <section className="min-h-screen bg-green-50 py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">

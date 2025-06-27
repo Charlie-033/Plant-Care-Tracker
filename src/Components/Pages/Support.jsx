@@ -1,7 +1,9 @@
 import React from "react";
 import { FaEnvelope, FaPhoneAlt, FaQuestionCircle } from "react-icons/fa";
+import useDocumentTitle from "../Others/useDocumentTitle";
 
 const Support = () => {
+  useDocumentTitle("Support ")
   return (
     <section className="min-h-screen bg-white px-6 py-12 md:px-16 lg:px-32 text-green-900">
       <div className="max-w-5xl mx-auto">

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import AuthContext from "../../Provider/AuthContext";
-import DocumentTitle from "../Others/DocumentTitle";
+import useDocumentTitle from "../Others/useDocumentTitle";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -22,6 +22,11 @@ const Login = () => {
     loginUser(email, password)
       .then((res) => {
         // console.log(res.user);
+        Swal.fire({
+          icon: "success",
+          title: "Successful",
+          text: `User Logged in Successfull!✅`,
+        });
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
@@ -43,7 +48,7 @@ const Login = () => {
         setError(error.message);
       });
   };
-  DocumentTitle("Login");
+  useDocumentTitle("Login");
   return (
     <div className="flex justify-center items-center py-10">
       <div className="card bg-base-100 w-full max-w-lg items-center shrink-0 shadow-xl dark:bg-gray-500">
